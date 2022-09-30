@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { ContentdgComponent } from './components/share/contentdg/contentdg.component';
 import { optioncs } from './models/optioncs';
 
 @Component({
@@ -10,6 +12,9 @@ export class AppComponent {
   title = 'ClientApp';
   shownav: boolean = false;
   status = '';
+  constructor(private dialog: MatDialog) {
+
+  }
   drawer_click() {
     this.shownav = !this.shownav;
   }
@@ -29,5 +34,16 @@ export class AppComponent {
   taiqr() {
     this.status = 'download';
   }
-
+  showDialog() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "100%";
+    dialogConfig.height = "310px";
+    this.dialog.open(ContentdgComponent, dialogConfig).afterClosed().subscribe(
+      res => {
+        // this.rowSelect = -1;
+      }
+    );
+  }
 }
