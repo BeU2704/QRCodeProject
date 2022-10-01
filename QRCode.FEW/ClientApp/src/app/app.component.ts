@@ -39,6 +39,7 @@ export class AppComponent {
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
     dialogConfig.width = "100%";
+    dialogConfig.maxWidth="95%";
     dialogConfig.height = "310px";
     this.dialog.open(ContentdgComponent, dialogConfig).afterClosed().subscribe(
       res => {
