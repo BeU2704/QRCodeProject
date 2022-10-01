@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { QrmobileComponent } from './qrmobile.component';
+import { VanbanComponent } from './vanban.component';
 
-describe('QrmobileComponent', () => {
-  let component: QrmobileComponent;
-  let fixture: ComponentFixture<QrmobileComponent>;
+describe('VanbanComponent', () => {
+  let component: VanbanComponent;
+  let fixture: ComponentFixture<VanbanComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ QrmobileComponent ]
+      declarations: [ VanbanComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(QrmobileComponent);
+    fixture = TestBed.createComponent(VanbanComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

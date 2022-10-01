@@ -6,16 +6,19 @@ import { NgxQrcodeStylingModule } from 'ngx-qrcode-styling';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { QrcodeComponent } from './components/share/qrcode/qrcode.component';
-import { QrmobileComponent } from './components/share/qrmobile/qrmobile.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ContentdgComponent } from './components/share/contentdg/contentdg.component';
+import { VanbanComponent } from './components/nghiepvu/vanban/vanban.component';
+import { VcardComponent } from './components/nghiepvu/vcard/vcard.component';
+import {DatePipe} from '@angular/common';
 
 @NgModule({
   declarations: [
     AppComponent,
     QrcodeComponent,
-    QrmobileComponent,
-    ContentdgComponent
+    ContentdgComponent,
+    VanbanComponent,
+    VcardComponent
   ],
   imports: [
     NgxQrcodeStylingModule,
@@ -25,7 +28,7 @@ import { ContentdgComponent } from './components/share/contentdg/contentdg.compo
     MatDialogModule
     
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -16,7 +16,7 @@ export class QrcodeComponent implements OnInit, OnChanges {
   constructor() { }
   ngOnChanges(changes: SimpleChanges): void {
     this.update_qr();
-    if (this._is_download === 'download') {
+    if (this._is_download.indexOf('download') > -1) {
       this.onDownload();
     }
   }
@@ -73,7 +73,7 @@ export class QrcodeComponent implements OnInit, OnChanges {
     this._is_download = value;
   }
   onDownload(): void {
-    this.qrcode.download('file-name.png').subscribe((res) => {
+    this.qrcode.download(this._is_download + '.png').subscribe((res) => {
       // TO DO something!
       console.log('download:', res);
       this._is_download = '';
