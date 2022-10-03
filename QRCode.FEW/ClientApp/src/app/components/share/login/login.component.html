@@ -1,5 +1,5 @@
 <div class="flex">
-    <div class="left mr-2 flex items-center justify-center w-2/4">
+    <div class="left mr-2 hidden items-center justify-center w-2/4 md:flex">
         <img data-v-7a2ee0cb="" src="https://marketing.icheck.vn/qrcode-free/_nuxt/img/lg-login-intro.0867df8.png"
             alt="">
     </div>
@@ -62,26 +62,39 @@
                 </div>
                 <div data-v-f06b17fa="" class="flex forgot-pass ant-row ant-form-item">
                     <div class="ant-col ant-form-item-control-wrapper">
-                        <div class="ant-form-item-control"><span class="ant-form-item-children">
-                                <div data-v-f06b17fa="" class="flex justify-between"><label data-v-f06b17fa=""
-                                        class="flex-grow remember ant-checkbox-wrapper"><span
+                        <div class="ant-form-item-control">
+                            <span class="ant-form-item-children relative">
+                                <div data-v-f06b17fa="" class="flex justify-between">
+                                    <label data-v-f06b17fa="" class="flex-grow remember ant-checkbox-wrapper
+                                    relative  text-[#1b283f] font-normal text-sm leading-[17px]"><span
                                             class="ant-checkbox"><input type="checkbox" class="ant-checkbox-input"
-                                                value=""><span class="ant-checkbox-inner"></span></span><span>
+                                                value=""><span class="ant-checkbox-inner"></span></span>
+                                        <span class=" px-2">
                                             Nhớ tài khoản
-                                        </span></label> <a data-v-f06b17fa="" class="forgot-pass">Quên mật khẩu?</a>
+                                        </span></label>
+                                    <a data-v-f06b17fa=""
+                                        class="forgot-pass text-[#727e97] font-normal text-sm leading-[17px]">Quên mật
+                                        khẩu?</a>
                                 </div>
                             </span>
                             <!---->
                         </div>
                     </div>
                 </div>
-                <div data-v-f06b17fa="" class="my-8"><button data-v-f06b17fa="" type="submit"
-                        class="btn-submit ant-btn ant-btn-primary"><span>Đăng nhập</span></button></div>
+                <div data-v-f06b17fa="" class="my-8">
+                    <button data-v-f06b17fa="" type="submit" class="btn-submit ant-btn ant-btn-primary
+                    w-full rounded-[6px] h-11 bg-[#00b289] border-[#00b289] inline-block relative items-center whitespace-nowrap font-normal px-[15px]
+                    cursor-pointer text-white"><span>Đăng
+                            nhập</span>
+                    </button>
+                </div>
                 <div data-v-f06b17fa="" class="note mb-5">
                     Nếu bạn chưa có tài khoản? Đăng ký
-                    <a data-v-f06b17fa="" class="link">tại đây</a>
+                    <a data-v-f06b17fa="" class="link text-[#00b289] underline underline-offset-2 cursor-pointer"
+                        (click)="showDialog()">tại đây</a>
                 </div>
             </form>
         </div>
+        <img data-v-7a2ee0cb="" (click)="onClose()" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAJrSURBVHgBtVZPaxNREJ/3dmlToRo99pTSQxEU00MPnpJcPYgFDx7bYxRhpRcRIRso4s1XRCteip9A8Ask/QRG8OBxT+JBYrCHJCXvjTOv7iZZun9okh88lsybzG9n5rdvnoAMeC/fVqV0KwKhigJKZCqd72APhegIIzpG60/q1ZNOWhyRRuAIt0HBq5AD5NdGPWqqg6ftXESed1yU14YNQPTgMkBU5nSlqdReL5HIe35UcpbEZwQswwwQIDr6DHfU63owtoUklIlzddialWSK7O9yLcxMhhtcrnmRMDiWXO03xsTAjT8iZUELFgBjRjUWiM3IcUQDFgThuDa28F58LEtXf01z3iitQbd3Cn9oxe39wRn8/PU77e82KylcvZtF8njvvl3Xi6uRfXtr09r26w9hpbCcFgKklNQaIe6kOfHbciY3iCQkY5JHD2p2n/f6g2FaCPqYZcW5W7mnqIKFJKfRSMP3HwHcvrluyW7Rc7u8GZG8P/5iy5cGVhyJQRQhA90o4NCSTZJ0Y31LQElCTmysr031Av+vvGCiIMsp3pN4z3KgR1oQQZoHB5ok4XLxmiTLUh2d7B2JiCdpThf1JOwZ264UliATGr6JPMdP+MZxGSfZ4zDSbNmzbr/xoUWZVWEB4IH4plmvWdVpjU1YEHjq8tMSqYN6m6R6CHMGGjgMR3v0HaEc+EjDCuYEHnzoFvzwd0Sk/Gc9lLgzDzI7XSmW8sf3hqmTQfn1AGW/NksZuVxa0gj3x/eFc/IEsOx5IOZVI9372hqhyf2+cD8rgOe/Kwsjd3mcIJryxCEcUPCA5HtiDLSTCEL8A8UyJr8qeANYAAAAAElFTkSuQmCC" alt="" class="absolute top-0 right-0 cursor-pointer">
     </div>
 </div>

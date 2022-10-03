@@ -47,3 +47,7 @@ img {
 .header-mobile-nav[data-v-7b4125dc]::-webkit-scrollbar {
     display: none;
 }
+.magrin_pane{
+    margin-left: 20px;
+    margin-right: 20px;
+}

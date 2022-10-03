@@ -43,9 +43,11 @@ export class AppComponent implements OnInit {
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
     dialogConfig.width = this.innerWidth >= 1024 ? '900px' : "100%";
-    dialogConfig.height = this.innerWidth >= 1024 ? '585px' :"100%";
-    dialogConfig.maxWidth = this.innerWidth >= 1024 ? '' :"95%";
-    dialogConfig.maxHeight = this.innerWidth >= 1024 ? '' :"95%";
+    dialogConfig.height = this.innerWidth >= 1024 ? '585px' : "100%";
+    dialogConfig.maxWidth = this.innerWidth >= 1024 ? '' : "95%";
+    dialogConfig.maxHeight = this.innerWidth >= 1024 ? '' : "95%";
+    dialogConfig.panelClass = "magrin_pane";
+    dialogConfig.disableClose = true;
     if (status === 'login') {
       this.dialog.open(LoginComponent, dialogConfig).afterClosed().subscribe(
         res => {
