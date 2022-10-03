@@ -2,31 +2,26 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
-import { NgxQrcodeStylingModule } from 'ngx-qrcode-styling';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { QrcodeComponent } from './components/share/qrcode/qrcode.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { ContentdgComponent } from './components/share/contentdg/contentdg.component';
-import { VanbanComponent } from './components/nghiepvu/vanban/vanban.component';
-import { VcardComponent } from './components/nghiepvu/vcard/vcard.component';
 import {DatePipe} from '@angular/common';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { DichvuComponent } from './components/nghiepvu/dichvu/dichvu.component';
+import { SigninComponent } from './components/share/signin/signin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    QrcodeComponent,
-    ContentdgComponent,
-    VanbanComponent,
-    VcardComponent
+    DichvuComponent,
+    SigninComponent,
   ],
   imports: [
-    NgxQrcodeStylingModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatDialogModule
-    
+    MatDialogModule,
+    MatAutocompleteModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

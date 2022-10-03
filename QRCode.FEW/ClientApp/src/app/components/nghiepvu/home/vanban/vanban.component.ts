@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { optioncs } from 'src/app/models/optioncs';
-import { ContentdgComponent } from '../../share/contentdg/contentdg.component';
+import { ContentdgComponent } from '../../../share/contentdg/contentdg.component';
 import { DatePipe } from '@angular/common';
 
 @Component({

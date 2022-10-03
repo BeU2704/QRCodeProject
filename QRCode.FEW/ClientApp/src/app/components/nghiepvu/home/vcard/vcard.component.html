@@ -51,8 +51,8 @@
                                         class="ant-row ant-form-item relative h-auto block clear-both mb-[10px] box-border p-0 text-sm align-top">
                                         <div class="ant-col ant-form-item-control-wrapper relative">
                                             <div class="ant-form-item-control relative leading-10"><span
-                                                    class="ant-form-item-children relative"><input
-                                                        placeholder="Tên..." type="text"
+                                                    class="ant-form-item-children relative"><input placeholder="Tên..."
+                                                        type="text"
                                                         class="ant-input text-ellipsis box-border m-0 relative inline-block w-full h-8 p-2 md:py-[4px] md:px-[11px] leading-[1.5] bg-white border border-solid border-[#d9d9d9] rounded outline-none focus:border-[#40a9ff] text-sm"></span>
                                                 <!---->
                                             </div>
@@ -64,7 +64,8 @@
                         <div>
                             <div class="flex justify-between">
                                 <div class="w-full mr-5">
-                                    <label class="mb-2 block form-label text-[#1b283f]">Số điện thoại (Công việc)</label>
+                                    <label class="mb-2 block form-label text-[#1b283f]">Số điện thoại (Công
+                                        việc)</label>
                                     <div
                                         class="ant-row ant-form-item relative h-auto block clear-both mb-[10px] box-border p-0 text-sm align-top">
                                         <div class="ant-col ant-form-item-control-wrapper relative">
@@ -93,6 +94,48 @@
                                 </div>
                             </div>
                         </div>
+                        <div>
+                            <div class="flex justify-between">
+                                <div class="w-full mr-5">
+                                    <label class="mb-2 block form-label text-[#1b283f]">Quốc gia</label>
+                                    <div
+                                        class="ant-row ant-form-item relative h-auto block clear-both mb-[10px] box-border p-0 text-sm align-top">
+                                        <div class="ant-col ant-form-item-control-wrapper relative">
+                                            <div class="ant-form-item-control relative leading-10">
+                                                <span class="ant-form-item-children relative">
+                                                    <input #quocgia placeholder="Quốc gia..." type="text"
+                                                        (keyup)="change_quocgia(quocgia.value)" [matAutocomplete]="auto"
+                                                        class="ant-input text-ellipsis box-border m-0 relative inline-block w-full h-8 p-2 md:py-[4px] md:px-[11px] leading-[1.5] bg-white border border-solid border-[#d9d9d9] rounded outline-none focus:border-[#40a9ff] text-sm">
+
+
+                                                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                                                        <mat-option *ngFor="let option of filteredOptions"
+                                                            [value]="option">
+                                                            {{option}}
+                                                        </mat-option>
+                                                    </mat-autocomplete>
+                                                </span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w-full">
+                                    <label class="mb-2 block form-label text-[#1b283f]">Số di động</label>
+                                    <div
+                                        class="ant-row ant-form-item relative h-auto block clear-both mb-[10px] box-border p-0 text-sm align-top">
+                                        <div class="ant-col ant-form-item-control-wrapper relative">
+                                            <div class="ant-form-item-control relative leading-10"><span
+                                                    class="ant-form-item-children relative"><input
+                                                        placeholder="Số di động..." type="number"
+                                                        class="ant-input text-ellipsis box-border m-0 relative inline-block w-full h-8 p-2 md:py-[4px] md:px-[11px] leading-[1.5] bg-white border border-solid border-[#d9d9d9] rounded outline-none focus:border-[#40a9ff] text-sm"></span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -104,8 +147,8 @@
                         <div class="relative">
                             <div class="flex justify-center">
                                 <div style="width: 240;height: 240;">
-                                    <!-- <app-qrcode [op_tion]="op_tion" [is_download]="status">
-                                    </app-qrcode> -->
+                                    <app-qrcode [op_tion]="op_tion" [is_download]="status"></app-qrcode>
+                                    
                                 </div>
                             </div>
                         </div>

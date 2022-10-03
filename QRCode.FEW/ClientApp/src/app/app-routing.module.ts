@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { VanbanComponent } from './components/nghiepvu/vanban/vanban.component';
-import { VcardComponent } from './components/nghiepvu/vcard/vcard.component';
+import { DichvuComponent } from './components/nghiepvu/dichvu/dichvu.component';
 
-const routes: Routes = [
-  { path: 'van-ban', component: VanbanComponent },
-  { path: 'v-card', component: VcardComponent },
+const routes: Routes = [  
+  { path: 'dich-vu', component: DichvuComponent },
+  { path: 'qrfree', loadChildren: () => import('./components/nghiepvu/home/home.module').then(m => m.HomeModule) },
+  { path: '', redirectTo: 'qrfree', pathMatch: 'full' }
 ];
 
 @NgModule({
