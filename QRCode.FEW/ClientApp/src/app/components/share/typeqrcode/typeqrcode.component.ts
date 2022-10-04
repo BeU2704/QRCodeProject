@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { image_obj } from 'src/app/models/image_obj';
 
 @Component({
@@ -11,7 +11,7 @@ export class TypeqrcodeComponent implements OnInit {
   constructor() { }
   _pprofesional = false;
   _hinh_chon = 'circle';
-  _mau_chon = '';
+  _mau_chon = 'exist';
   img_select = '';
 
   options_circle: image_obj[] = [
@@ -66,12 +66,10 @@ export class TypeqrcodeComponent implements OnInit {
       link_img: 'https://assets.icheck.vn/image/2022/icheck/5/7c4923185c02702fc2efc7b2df2c77c7.png'
     },
   ];
-
-
   shape_out = '';
   image_out = '';
-
-
+  mau_nen = '#ffffff';
+  mau_code = '#000000';
   profesional = true;
 
   ngOnInit(): void {
@@ -79,11 +77,14 @@ export class TypeqrcodeComponent implements OnInit {
   onHinhChange(gt: string) {
     this._hinh_chon = gt;
   }
-  onMauChange(gt: boolean) {
-
+  onMauChange(gt: string) {
+    this._mau_chon = gt;
   }
-  setvalue_change() {
-
+  change_maunen() {
+    console.log(this.mau_nen);
+  }
+  change_maucode() {
+    console.log(this.mau_code);
   }
   select_img(img_name: string) {
     this.img_select = img_name;

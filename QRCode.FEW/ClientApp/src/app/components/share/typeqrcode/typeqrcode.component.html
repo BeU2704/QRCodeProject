@@ -32,16 +32,16 @@
                 class="label block w-28">Màu nền</label>
             <div class="flex items-center p-1 border border-gray-300 rounded-md w-32">
                 <input type="color"
-                    class="color-input border-none bg-transparent rounded-full cursor-pointer mr-3 box-content"> <span
-                    class="text-gray-400">#ffffff</span>
+                    class="color-input border-none bg-transparent rounded-full cursor-pointer mr-3 box-content"
+                    value="#ffffff"> <span class="text-gray-400">{{mau_nen}}</span>
             </div>
         </div>
         <div data-track-content="" data-content-name="qrcodeColor" data-content-region-name="generator_qrcode_config"
             class="flex justify-start items-center mb-5"><label class="label block w-28">Màu mã code</label>
             <div class="flex items-center p-1 border border-gray-300 rounded-md w-32">
                 <input type="color"
-                    class="color-input border-none bg-transparent rounded-full cursor-pointer mr-3 box-content"> <span
-                    class="text-gray-400">#191919</span>
+                    class="color-input border-none bg-transparent rounded-full cursor-pointer mr-3 box-content"
+                    value="#ffffff"> <span class="text-gray-400">{{mau_code}}</span>
             </div>
         </div>
     </div>
@@ -110,7 +110,7 @@
             data-v-030d3430="">
             <label data-v-7be58c2e="" class="ant-radio-wrapper ant-radio-wrapper-checked">
                 <span class="ant-radio ant-radio-checked">
-                    <input type="radio" class="ant-radio-input" value="exist" name="mau" (change)="onMauChange(true)"
+                    <input type="radio" class="ant-radio-input" value="exist" name="mau" (change)="onMauChange('exist')"
                         checked>
                     <span class="ant-radio-inner">
                     </span>
@@ -119,43 +119,78 @@
                     Mẫu có sẵn </span>
             </label>
             <label data-v-7be58c2e="" class="ant-radio-wrapper"><span class="ant-radio">
-                    <input type="radio" class="ant-radio-input" value="self" name="mau" (change)="onMauChange(false)">
+                    <input type="radio" class="ant-radio-input" value="self" name="mau" (change)="onMauChange('self')">
                     <span class="ant-radio-inner"></span></span>
                 <span class="px-2">
                     Tự thiết kế
                 </span></label>
         </div>
         <div data-v-7be58c2e="" data-v-030d3430="" class="list-qrcode-configs-wrap">
-            <div *ngIf="_hinh_chon==='circle'">
-                <ul data-v-7be58c2e="" data-v-030d3430=""
-                    class="list-qrcode-configs flex justify-start items-center mb-5">
-                    <li data-v-7be58c2e="" data-v-030d3430="" class="mr-2 relative cursor-pointer"
-                        *ngFor="let it of options_circle">
-                        <img data-v-7be58c2e="" data-v-030d3430="" class="w-[70px] h-[70px] block align-middle"
-                            src="{{it.link_img}}" alt="" (click)="select_img(it.link_img)">
-                        <div *ngIf="img_select===it.link_img" data-v-7be58c2e="" data-v-030d3430="" class="overlay absolute flex justify-center items-center circle
-                        bg-[#00000066] top-0 left-0 w-full h-full rounded-full">
-                            <img data-v-7be58c2e="" data-v-030d3430="" class="w-[16px] h-[16px]"
-                                src="https://marketing.icheck.vn/qrcode-free/_nuxt/55cde1db477eb950a4efef4d3728c97b.svg"
-                                alt="">
-                        </div>
-                    </li>
-                </ul>
+            <div *ngIf="_mau_chon==='exist'">
+                <div [ngClass]="{block:_hinh_chon==='circle',hidden:_hinh_chon!='circle'}">
+                    <ul data-v-7be58c2e="" data-v-030d3430=""
+                        class="list-qrcode-configs flex justify-start items-center mb-5">
+                        <li data-v-7be58c2e="" data-v-030d3430="" class="mr-2 relative cursor-pointer"
+                            *ngFor="let it of options_circle">
+                            <img data-v-7be58c2e="" data-v-030d3430="" class="w-[70px] h-[70px] block align-middle"
+                                src="{{it.link_img}}" alt="" (click)="select_img(it.link_img)">
+                            <div *ngIf="img_select===it.link_img" data-v-7be58c2e="" data-v-030d3430="" class="overlay absolute flex justify-center items-center circle
+                            bg-[#00000066] top-0 left-0 w-full h-full rounded-full">
+                                <img data-v-7be58c2e="" data-v-030d3430="" class="w-[16px] h-[16px]"
+                                    src="https://marketing.icheck.vn/qrcode-free/_nuxt/55cde1db477eb950a4efef4d3728c97b.svg"
+                                    alt="">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div [ngClass]="{block:_hinh_chon==='square',hidden:_hinh_chon!='square'}">
+                    <ul data-v-7be58c2e="" data-v-030d3430=""
+                        class="list-qrcode-configs flex justify-start items-center mb-5">
+                        <li data-v-7be58c2e="" data-v-030d3430="" class="mr-2 relative cursor-pointer"
+                            *ngFor="let it of options_square">
+                            <img data-v-7be58c2e="" data-v-030d3430="" src="{{it.link_img}}"
+                                (click)="select_img(it.link_img)" alt="">
+                            <div data-v-7be58c2e="" data-v-030d3430="" *ngIf="img_select===it.link_img" class="overlay absolute flex justify-center items-center square
+                                bg-[#00000066] top-0 left-0 w-full h-full"><img data-v-7be58c2e="" data-v-030d3430=""
+                                    src="https://marketing.icheck.vn/qrcode-free/_nuxt/55cde1db477eb950a4efef4d3728c97b.svg"
+                                    alt="">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div *ngIf="_hinh_chon==='square'">
-                <ul data-v-7be58c2e="" data-v-030d3430=""
-                    class="list-qrcode-configs flex justify-start items-center mb-5">
-                    <li data-v-7be58c2e="" data-v-030d3430="" class="mr-2 relative cursor-pointer"
-                        *ngFor="let it of options_square">
-                        <img data-v-7be58c2e="" data-v-030d3430="" src="{{it.link_img}}"
-                            (click)="select_img(it.link_img)" alt="">
-                        <div data-v-7be58c2e="" data-v-030d3430="" *ngIf="img_select===it.link_img" class="overlay absolute flex justify-center items-center square
-                            bg-[#00000066] top-0 left-0 w-full h-full"><img data-v-7be58c2e="" data-v-030d3430=""
-                                src="https://marketing.icheck.vn/qrcode-free/_nuxt/55cde1db477eb950a4efef4d3728c97b.svg"
-                                alt="">
-                        </div>
+
+            <div *ngIf="_mau_chon==='self'">
+                <ul class="flex list-qrcode-shape">
+                    <li class="p-3 border border-gray-300 duration-300 rounded-lg cursor-pointer mr-8 active"><img
+                            src="https://marketing.icheck.vn/qrcode-free/_nuxt/img/shape1.ae290d2.png" alt=""></li>
+                    <li class="p-3 border border-gray-300 duration-300 rounded-lg cursor-pointer mr-8"><img
+                            src="https://marketing.icheck.vn/qrcode-free/_nuxt/img/shape2.2f8f162.png" alt="">
+                    </li>
+                    <li class="p-3 border border-gray-300 duration-300 rounded-lg cursor-pointer mr-8"><img
+                            src="https://marketing.icheck.vn/qrcode-free/_nuxt/img/shape3.9327936.png" alt="">
                     </li>
                 </ul>
+                <div data-track-content="" data-content-name="qrcodeBackgroundColor"
+                    data-content-region-name="generator_qrcode_config" class="flex justify-start items-center my-5">
+                    <label class="label block w-28">Màu nền</label>
+                    <div class="flex items-center p-1 border border-gray-300 rounded-md w-32">
+                        <input type="color"
+                            class="color-input border-none bg-transparent rounded-full cursor-pointer mr-3 box-content w-8"
+                            [(ngModel)]="mau_nen" (change)="change_maunen()">
+                        <span class="text-gray-400">{{mau_nen}}</span>
+                    </div>
+                </div>
+                <div data-track-content="" data-content-name="qrcodeColor"
+                    data-content-region-name="generator_qrcode_config" class="flex justify-start items-center mb-5">
+                    <label class="label block w-28">Màu mã code</label>
+                    <div class="flex items-center p-1 border border-gray-300 rounded-md w-32">
+                        <input type="color"
+                            class="color-input border-none bg-transparent rounded-full cursor-pointer mr-3 box-content  w-8"
+                            [(ngModel)]="mau_code" (change)="change_maucode()">
+                        <span class="text-gray-400">{{mau_code}}</span>
+                    </div>
+                </div>
             </div>
             <!---->
         </div>
