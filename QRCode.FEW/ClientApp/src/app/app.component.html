@@ -66,7 +66,7 @@
                     src="https://marketing.icheck.vn/qrcode-free/_nuxt/c420e65ecff9e9b98843ef37d9725d2d.svg" alt=""
                     (click)="drawer_click()"></div>
         </div>
-        <div class="header-mobile-nav -mt-2 overflow-x-auto">
+        <div data-v-7b4125dc="" class="header-mobile-nav -mt-2 overflow-x-auto">
             <div class="wrap w-max flex items-center justify-start"><a href="./van-ban"
                     class="hmb-nav flex items-center py-2 px-4 text-[#ebf0f5] text-sm active:border-b-[3px] active:border-solid active:border-white">
                     Văn bản
@@ -143,34 +143,48 @@
                 class="transform top-0 left-0 w-64 bg-white fixed h-full overflow-auto ease-in-out transition-all duration-300 z-[1000]"
                 [ngClass]="{'translate-x-0':shownav,'-translate-x-full':!shownav}">
                 <div class="p-0 text-sm break-words">
-                    <a data-v-44d0c4ae="" href="/qrcode-free/generate"
-                        class="nuxt-link-active text-black flex items-center px-6 py-3  ">
-                        <div data-v-44d0c4ae="" class="mr-2"><img data-v-44d0c4ae=""
+                    <a href="/qrcode-free/generate" class="nuxt-link-active text-black flex items-center px-6 py-3  ">
+                        <div class="mr-2"><img
                                 src="https://marketing.icheck.vn/qrcode-free/_nuxt/52b0dabf988f63a0401842f7087d09ac.svg"
                                 alt=""></div>
-                        <div data-v-44d0c4ae="">Trang chủ</div>
+                        <div>Trang chủ</div>
                     </a>
-                    <a data-v-44d0c4ae="" href="javascript:void(0)" class="text-black flex items-center px-6 py-3">
-                        <div data-v-44d0c4ae="" class="mr-2"><img data-v-44d0c4ae=""
+                    <a href="javascript:void(0)" class="text-black flex items-center px-6 py-3">
+                        <div class="mr-2"><img
                                 src="https://marketing.icheck.vn/qrcode-free/_nuxt/27e48213fd81ade9aa37c067c5e6c69b.svg"
                                 alt=""></div>
-                        <div data-v-44d0c4ae="">QRCode Doanh nghiệp</div>
+                        <div>QRCode Doanh nghiệp</div>
                     </a>
-                    <a data-v-44d0c4ae="" href="/qrcode-free/qrcode-management"
-                        class="text-black flex items-center px-6 py-3  ">
-                        <div data-v-44d0c4ae="" class="mr-2"><img data-v-44d0c4ae=""
+                    <a href="/qrcode-free/qrcode-management" class="text-black flex items-center px-6 py-3  ">
+                        <div class="mr-2"><img
                                 src="https://marketing.icheck.vn/qrcode-free/_nuxt/27e48213fd81ade9aa37c067c5e6c69b.svg"
                                 alt=""></div>
-                        <div data-v-44d0c4ae="">QRCode Free</div>
+                        <div>QRCode Free</div>
                     </a>
-                    <a data-v-44d0c4ae="" href="/qrcode-free/package-service"
-                        class="text-black flex items-center px-6 py-3  ">
-                        <div data-v-44d0c4ae="" class="mr-2"><img data-v-44d0c4ae=""
+                    <a href="/qrcode-free/package-service" class="text-black flex items-center px-6 py-3  ">
+                        <div class="mr-2"><img
                                 src="https://marketing.icheck.vn/qrcode-free/_nuxt/b7309ecf919a2a38cf2deecf39c13c60.svg"
                                 alt=""></div>
-                        <div data-v-44d0c4ae="">Dịch vụ</div>
+                        <div>Dịch vụ</div>
                     </a>
 
+                </div>
+                <div *ngIf="is_login" class="px-6"><button type="button" class="btn-login ant-btn
+                    bg-white border-black border-solid border w-[136px] h-[40px] rounded-md text-black"
+                        (click)="dang_nhap()"
+                        ant-click-animating-without-extra-node="false"><span>0399059100</span></button></div>
+                <div role="separator"
+                    class="ant-divider ant-divider-horizontal
+                relative -top-[0.06em] align-middle block clear-both w-full h-[1px] min-w-full box-border text-sm bg-[#e8e8e8] leading-[1.5]"
+                    style="margin: 12px 0px;"></div>
+                <div *ngIf="!is_login" class="px-6"><button type="button" class="btn-login ant-btn
+                    bg-[#53b6ef] border-[#53b6ef] w-[136px] h-[40px] rounded-md text-white" (click)="dang_nhap()"
+                        ant-click-animating-without-extra-node="false"><span>Đăng nhập</span></button></div>
+                <div *ngIf="is_login" class="flex items-center px-6 text-black" (click)="log_out()">
+                    <div class="mr-2"><img
+                            src="https://marketing.icheck.vn/qrcode-free/_nuxt/b14570c0519b3e64bf0bf83eadde7ca2.svg"
+                            alt=""></div>
+                    <div>Thoát</div>
                 </div>
             </aside>
         </div>

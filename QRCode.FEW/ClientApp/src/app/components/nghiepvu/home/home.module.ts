@@ -10,8 +10,7 @@ import { NgxQrcodeStylingModule } from 'ngx-qrcode-styling';
 import { QrcodeComponent } from './qrcode/qrcode.component';
 import { ContentdgComponent } from '../../share/contentdg/contentdg.component';
 import { LoginComponent } from '../../share/login/login.component';
-
-
+import { TypeqrcodeComponent } from '../../share/typeqrcode/typeqrcode.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +19,8 @@ import { LoginComponent } from '../../share/login/login.component';
     VcardComponent,
     QrcodeComponent,    
     ContentdgComponent,
-    LoginComponent 
+    LoginComponent,
+    TypeqrcodeComponent,   
   ],
   imports: [
     CommonModule,

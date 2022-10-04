@@ -33,7 +33,8 @@ export class AppComponent implements OnInit {
   }
   dang_nhap() {
     //this.is_login = false;
-    this.showDialog('login');
+    if (this.is_login === false)
+      this.showDialog('login');
   }
   log_out() {
     this.is_login = false;
@@ -51,7 +52,8 @@ export class AppComponent implements OnInit {
     if (status === 'login') {
       this.dialog.open(LoginComponent, dialogConfig).afterClosed().subscribe(
         res => {
-          // this.rowSelect = -1;
+          console.log('aaaaa');
+          this.is_login = true;
         }
       );
     }

@@ -14,7 +14,7 @@ import { SigninComponent } from './components/share/signin/signin.component';
   declarations: [
     AppComponent,
     DichvuComponent,
-    SigninComponent,
+    SigninComponent,  
   ],
   imports: [
     BrowserModule,
