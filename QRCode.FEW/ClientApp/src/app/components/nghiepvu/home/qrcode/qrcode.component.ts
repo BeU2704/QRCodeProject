@@ -91,7 +91,7 @@ export class QrcodeComponent implements OnInit, OnChanges {
         data: this.convert_data(this._op_tion.data),
         image: this._op_tion.image,
         margin: this._op_tion.margin,
-        template:'',
+        template: '',
         dotsOptions: {
           color: this._op_tion.dotcolor,
           type: this.get_dot_style(this._op_tion.dotstyle),
@@ -105,6 +105,7 @@ export class QrcodeComponent implements OnInit, OnChanges {
         backgroundOptions: {
           color: this._op_tion.background_color,
           round: this._op_tion.shape == 'square' ? 0 : 1000,
+
         },
         imageOptions: {
           crossOrigin: "anonymous",
@@ -114,7 +115,7 @@ export class QrcodeComponent implements OnInit, OnChanges {
         qrOptions: {
           "mode": "Byte",
           "errorCorrectionLevel": "H"
-        },
+        }
       })
     }
   }

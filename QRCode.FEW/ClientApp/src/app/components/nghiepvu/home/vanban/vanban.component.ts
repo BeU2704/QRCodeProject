@@ -31,7 +31,7 @@ export class VanbanComponent implements OnInit {
   }
   now: Date = new Date();
   op_tion: optioncs = {
-    data: " ",
+    data: "localhost",
     image: '',
     witdth: this.witdth,
     height: this.height,
@@ -66,7 +66,7 @@ export class VanbanComponent implements OnInit {
   onchange_text(gt: any) {
     this.data = gt.value;
     if (gt.value === '' || gt.value === null)
-      this.data = " ";
+      this.data = "localhost";
     //this.change_val();
   }
   change_val() {

@@ -30,15 +30,16 @@
                 class="label block w-28">Màu nền</label>
             <div class="flex items-center p-1 border border-gray-300 rounded-md w-32">
                 <input type="color"
-                    class="color-input border-none bg-transparent rounded-full cursor-pointer mr-3 box-content"
-                    [(ngModel)]="background_color" (change)="change_maunen()"> <span class="text-gray-400">{{background_color}}</span>
+                    class="color-input border-none bg-transparent rounded-full cursor-pointer mr-3 box-content w-8 h-8"
+                    [(ngModel)]="background_color" (change)="change_maunen()"> <span
+                    class="text-gray-400">{{background_color}}</span>
             </div>
         </div>
         <div data-track-content="" data-content-name="qrcodeColor" data-content-region-name="generator_qrcode_config"
             class="flex justify-start items-center mb-5"><label class="label block w-28">Màu mã code</label>
             <div class="flex items-center p-1 border border-gray-300 rounded-md w-32">
                 <input type="color"
-                    class="color-input border-none bg-transparent rounded-full cursor-pointer mr-3 box-content"
+                    class="color-input border-none bg-transparent rounded-full cursor-pointer mr-3 box-content  w-8 h-8"
                     [(ngModel)]="dotcolor" (change)="change_maunen()"> <span class="text-gray-400">{{dotcolor}}</span>
             </div>
         </div>
@@ -54,9 +55,10 @@
                         <div class="ant-upload ant-upload-select ant-upload-select-picture-card
                         h-fit m-0 w-full bg-transparent border border-solid border-[#d9d9d9]
                         table float-left align-top items-center cursor-pointer rounded-[4px]
-                        "><span role="button" tabindex="0"
+                        "><span role="button" tabindex="0" (click)="openfile()"
                                 class="ant-upload flex justify-between py-[10px] px-[16px] items-center w-full h-full text-center align-middle"><input
-                                    type="file" accept="" style="display: none;"><span class="text-gray-400">Tập tin của
+                                    #file type="file" accept="" style="display: none;" (change)="getFiles($event)"><span
+                                    class="text-gray-400">Tập tin của
                                     bạn</span> <button type="button" class="ant-btn ant-btn-primary text-white bg-[#00b289] border-[#00b289] relative inline-block font-normal
                                     whitespace-nowrap text-center cursor-pointer h-8 px-[15px] rounded-[4px]"><span>Tải
                                         lên</span>
@@ -194,9 +196,9 @@
                     <div class="ant-upload ant-upload-select ant-upload-select-picture-card
                     h-fit m-0 w-full bg-transparent border border-solid border-[#d9d9d9]
                         table float-left align-top items-center cursor-pointer rounded-[4px]"><span role="button"
-                            tabindex="0"
-                            class="ant-upload flex justify-between py-[10px] px-[16px] items-center w-full h-full text-center align-middle"><input
-                                type="file" accept="" style="display: none;"><span class="text-gray-400">Tập tin của
+                            tabindex="0" (click)="openfilepro()"
+                            class="ant-upload flex justify-between py-[10px] px-[16px] items-center w-full h-full text-center align-middle"><input #filepro
+                                type="file" accept="" style="display: none;" (change)="getFiles($event)"><span class="text-gray-400">Tập tin của
                                 bạn</span> <button type="button" class="ant-btn ant-btn-primary text-white bg-[#00b289] border-[#00b289] relative inline-block font-normal
                                 whitespace-nowrap text-center cursor-pointer h-8 px-[15px] rounded-[4px]"><span>Tải
                                     lên</span></button></span></div>
