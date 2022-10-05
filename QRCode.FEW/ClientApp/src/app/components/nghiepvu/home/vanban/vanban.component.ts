@@ -15,8 +15,8 @@ export class VanbanComponent implements OnInit {
   title = 'ngxqrcodeex';
   data = ' ';
   image = '';
-  witdth = 300;
-  height = 300;
+  witdth = 200;
+  height = 200;
   margin = 0;
   dotstyle = "square"; //"square" hoặc "dots"
   dotcolor = '#000000';
@@ -67,7 +67,7 @@ export class VanbanComponent implements OnInit {
     this.data = gt.value;
     if (gt.value === '' || gt.value === null)
       this.data = " ";
-    this.change_val();
+    //this.change_val();
   }
   change_val() {
     this.op_tion = {
@@ -83,5 +83,8 @@ export class VanbanComponent implements OnInit {
       background_color: this.background_color,
       shape: this.shape
     };
+  }
+  xuat_qr(item: optioncs) {
+    this.op_tion = item;
   }
 }

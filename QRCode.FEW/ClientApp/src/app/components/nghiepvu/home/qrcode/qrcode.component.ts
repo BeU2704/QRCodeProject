@@ -91,6 +91,7 @@ export class QrcodeComponent implements OnInit, OnChanges {
         data: this.convert_data(this._op_tion.data),
         image: this._op_tion.image,
         margin: this._op_tion.margin,
+        template:'',
         dotsOptions: {
           color: this._op_tion.dotcolor,
           type: this.get_dot_style(this._op_tion.dotstyle),

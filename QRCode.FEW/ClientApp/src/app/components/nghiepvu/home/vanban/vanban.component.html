@@ -51,38 +51,33 @@
                         </div>
                     </form>
                 </div>
-                <app-typeqrcode></app-typeqrcode>
+                <app-typeqrcode [data]="data" (option_output)="xuat_qr($event)"></app-typeqrcode>
             </div>
             <div class="relative min-h-[1px] box-border hidden md:block md:w-[41.66666667%] float-left grow-0 shrink-0 basis-auto"
                 style="padding-left: 20px; padding-right: 20px;">
-                <div data-v-a92dbf4c="" data-v-65d622e9="" class="py-6 px-12 bg-white rounded-xl relative shadow-md">
+                <div data-v-65d622e9="" class="py-6 px-6 bg-white rounded-xl relative shadow-md">
                     <!-- ---------------------------------------- -->
                     <div class="mb-5">
                         <div class="relative">
                             <div class="flex justify-center">
-                                <div style="width: 240;height: 240;">
-                                    <app-qrcode [op_tion]="op_tion" [is_download]="status">
-                                    </app-qrcode>
-                                </div>
+                                <app-qrcode [op_tion]="op_tion" [is_download]="status">
+                                </app-qrcode>
                             </div>
                         </div>
                     </div>
-                    <div data-v-a92dbf4c="">
-                        <div data-v-a92dbf4c="" class="qrcode-step text-sm clear-both">
+                    <div>
+                        <div class="qrcode-step text-sm clear-both">
                             <p class="mb-1">Cách đọc mã QR</p>
                             <p><b>Bước 1: </b> Cài đặt các ứng dụng quét mã QR trên điện thoại</p>
                             <p><b>Bước 2: </b> Mở ứng dụng quét mã QR, hướng camera của điện thoại
                                 về mã QR cần quét</p>
                             <p><b>Bước 3: </b> Xem thông tin trả về</p>
                         </div>
-                        <div data-v-a92dbf4c="" class="flex justify-center absolute w-full left-0 -bottom-16"><button
-                                data-v-a92dbf4c="" type="button" class="mr-5 save-btn ant-btn ant-btn-default ant-btn-lg btn-success
-                          rounded-md px-[50px] h-[40px] text-[16px] text-white border-transparent bg-[#00b289]
-                          "><span>Lưu</span></button>
-                            <button data-v-a92dbf4c="" type="button" (click)="taiqr()"
-                                class="w-full download-btn ant-btn ant-btn-info ant-btn-lg
-                          rounded-md px-[50px] h-[40px] text-[16px] text-white border-transparent bg-[#53b6ef]"><span>Tải QR Code
-                                    xuống</span></button>
+                        <div class="flex justify-center absolute w-full left-0 -bottom-16"><button type="button"
+                                class="mr-5 save-btn ant-btn ant-btn-default ant-btn-lg btn-success rounded-md px-[50px] h-[40px] text-[16px] text-white border-transparent bg-[#00b289]"><span>Lưu</span></button>
+                            <button type="button" (click)="taiqr()"
+                                class="w-full download-btn ant-btn ant-btn-info ant-btn-lg rounded-md px-[50px] h-[40px] text-[16px] text-white border-transparent bg-[#53b6ef]"><span>Tải
+                                    QR Code xuống</span></button>
                         </div>
                     </div>
                     <!---->

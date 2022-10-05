@@ -2,13 +2,11 @@
     <div class="bg-white rounded-xl shadow-md mb-5 collapse-block transition-none p-6">
         <!---->
         <ul class="flex list-qrcode-shape">
-            <li class="p-3 border border-gray-300 duration-300 rounded-lg cursor-pointer mr-8 active"><img
-                    src="https://marketing.icheck.vn/qrcode-free/_nuxt/img/shape1.ae290d2.png" alt=""></li>
-            <li class="p-3 border border-gray-300 duration-300 rounded-lg cursor-pointer mr-8"><img
-                    src="https://marketing.icheck.vn/qrcode-free/_nuxt/img/shape2.2f8f162.png" alt="">
-            </li>
-            <li class="p-3 border border-gray-300 duration-300 rounded-lg cursor-pointer mr-8"><img
-                    src="https://marketing.icheck.vn/qrcode-free/_nuxt/img/shape3.9327936.png" alt="">
+
+            <li *ngFor="let it of option_defalut" (click)="select_img(it.name)"
+                [ngClass]="{'border-[#53b6ef]':img_select===it.name,'border-gray-300':img_select!=it.name}"
+                class="p-3 border border-gray-300 duration-300 rounded-lg cursor-pointer mr-8"><img
+                    src="{{it.link_img}}" alt="">
             </li>
         </ul>
     </div>
@@ -33,7 +31,7 @@
             <div class="flex items-center p-1 border border-gray-300 rounded-md w-32">
                 <input type="color"
                     class="color-input border-none bg-transparent rounded-full cursor-pointer mr-3 box-content"
-                    value="#ffffff"> <span class="text-gray-400">{{mau_nen}}</span>
+                    [(ngModel)]="background_color" (change)="change_maunen()"> <span class="text-gray-400">{{background_color}}</span>
             </div>
         </div>
         <div data-track-content="" data-content-name="qrcodeColor" data-content-region-name="generator_qrcode_config"
@@ -41,7 +39,7 @@
             <div class="flex items-center p-1 border border-gray-300 rounded-md w-32">
                 <input type="color"
                     class="color-input border-none bg-transparent rounded-full cursor-pointer mr-3 box-content"
-                    value="#ffffff"> <span class="text-gray-400">{{mau_code}}</span>
+                    [(ngModel)]="dotcolor" (change)="change_maunen()"> <span class="text-gray-400">{{dotcolor}}</span>
             </div>
         </div>
     </div>
@@ -127,14 +125,14 @@
         </div>
         <div data-v-7be58c2e="" data-v-030d3430="" class="list-qrcode-configs-wrap">
             <div *ngIf="_mau_chon==='exist'">
-                <div [ngClass]="{block:_hinh_chon==='circle',hidden:_hinh_chon!='circle'}">
+                <div [ngClass]="{block:shape==='circle',hidden:shape!='circle'}">
                     <ul data-v-7be58c2e="" data-v-030d3430=""
                         class="list-qrcode-configs flex justify-start items-center mb-5">
                         <li data-v-7be58c2e="" data-v-030d3430="" class="mr-2 relative cursor-pointer"
                             *ngFor="let it of options_circle">
                             <img data-v-7be58c2e="" data-v-030d3430="" class="w-[70px] h-[70px] block align-middle"
-                                src="{{it.link_img}}" alt="" (click)="select_img(it.link_img)">
-                            <div *ngIf="img_select===it.link_img" data-v-7be58c2e="" data-v-030d3430="" class="overlay absolute flex justify-center items-center circle
+                                src="{{it.link_img}}" alt="" (click)="select_img(it.name)">
+                            <div *ngIf="img_select===it.name" data-v-7be58c2e="" data-v-030d3430="" class="overlay absolute flex justify-center items-center circle
                             bg-[#00000066] top-0 left-0 w-full h-full rounded-full">
                                 <img data-v-7be58c2e="" data-v-030d3430="" class="w-[16px] h-[16px]"
                                     src="https://marketing.icheck.vn/qrcode-free/_nuxt/55cde1db477eb950a4efef4d3728c97b.svg"
@@ -143,14 +141,14 @@
                         </li>
                     </ul>
                 </div>
-                <div [ngClass]="{block:_hinh_chon==='square',hidden:_hinh_chon!='square'}">
+                <div [ngClass]="{block:shape==='square',hidden:shape!='square'}">
                     <ul data-v-7be58c2e="" data-v-030d3430=""
                         class="list-qrcode-configs flex justify-start items-center mb-5">
                         <li data-v-7be58c2e="" data-v-030d3430="" class="mr-2 relative cursor-pointer"
                             *ngFor="let it of options_square">
                             <img data-v-7be58c2e="" data-v-030d3430="" src="{{it.link_img}}"
-                                (click)="select_img(it.link_img)" alt="">
-                            <div data-v-7be58c2e="" data-v-030d3430="" *ngIf="img_select===it.link_img" class="overlay absolute flex justify-center items-center square
+                                (click)="select_img(it.name)" alt="">
+                            <div data-v-7be58c2e="" data-v-030d3430="" *ngIf="img_select===it.name" class="overlay absolute flex justify-center items-center square
                                 bg-[#00000066] top-0 left-0 w-full h-full"><img data-v-7be58c2e="" data-v-030d3430=""
                                     src="https://marketing.icheck.vn/qrcode-free/_nuxt/55cde1db477eb950a4efef4d3728c97b.svg"
                                     alt="">
@@ -159,16 +157,12 @@
                     </ul>
                 </div>
             </div>
-
             <div *ngIf="_mau_chon==='self'">
                 <ul class="flex list-qrcode-shape">
-                    <li class="p-3 border border-gray-300 duration-300 rounded-lg cursor-pointer mr-8 active"><img
-                            src="https://marketing.icheck.vn/qrcode-free/_nuxt/img/shape1.ae290d2.png" alt=""></li>
-                    <li class="p-3 border border-gray-300 duration-300 rounded-lg cursor-pointer mr-8"><img
-                            src="https://marketing.icheck.vn/qrcode-free/_nuxt/img/shape2.2f8f162.png" alt="">
-                    </li>
-                    <li class="p-3 border border-gray-300 duration-300 rounded-lg cursor-pointer mr-8"><img
-                            src="https://marketing.icheck.vn/qrcode-free/_nuxt/img/shape3.9327936.png" alt="">
+                    <li *ngFor="let it of option_defalut" class="p-3 border duration-300 rounded-lg cursor-pointer mr-8"
+                        (click)="select_img(it.name)"
+                        [ngClass]="{'border-[#53b6ef]':img_select===it.name,'border-gray-300':img_select!=it.name}">
+                        <img src="{{it.link_img}}" alt="">
                     </li>
                 </ul>
                 <div data-track-content="" data-content-name="qrcodeBackgroundColor"
@@ -177,8 +171,8 @@
                     <div class="flex items-center p-1 border border-gray-300 rounded-md w-32">
                         <input type="color"
                             class="color-input border-none bg-transparent rounded-full cursor-pointer mr-3 box-content w-8"
-                            [(ngModel)]="mau_nen" (change)="change_maunen()">
-                        <span class="text-gray-400">{{mau_nen}}</span>
+                            [(ngModel)]="background_color" (change)="change_maunen()">
+                        <span class="text-gray-400">{{background_color}}</span>
                     </div>
                 </div>
                 <div data-track-content="" data-content-name="qrcodeColor"
@@ -187,8 +181,8 @@
                     <div class="flex items-center p-1 border border-gray-300 rounded-md w-32">
                         <input type="color"
                             class="color-input border-none bg-transparent rounded-full cursor-pointer mr-3 box-content  w-8"
-                            [(ngModel)]="mau_code" (change)="change_maucode()">
-                        <span class="text-gray-400">{{mau_code}}</span>
+                            [(ngModel)]="dotcolor" (change)="change_maucode()">
+                        <span class="text-gray-400">{{dotcolor}}</span>
                     </div>
                 </div>
             </div>
