@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { image_obj } from 'src/app/models/image_obj';
 import { optioncs } from 'src/app/models/optioncs';
@@ -9,7 +10,7 @@ import { optioncs } from 'src/app/models/optioncs';
 })
 export class TypeqrcodeComponent implements OnInit, OnChanges {
 
-  constructor() { }
+  constructor(private datepipe: DatePipe) { }
   ngOnChanges(changes: SimpleChanges): void {
     this.change_val();
   }
@@ -20,17 +21,15 @@ export class TypeqrcodeComponent implements OnInit, OnChanges {
   @ViewChild("filepro")
   filepro!: ElementRef;
   openfile() {
-    console.log(this.file.nativeElement);
     this.file.nativeElement.click();
   }
   openfilepro() {
-    console.log(this.filepro.nativeElement);
     this.filepro.nativeElement.click();
   }
   options_circle: image_obj[] = [
     {
       name: 'IMG1',
-      link_img: 'https://assets.icheck.vn/image/2022/icheck/3/caf15228ac8c3fb07ab2f9fd631e23f6.png',
+      link_img: './assets/images/download20221006083333.png',
       dotstyle: 'dots',
       cornerSquareType: 'dots',
       cornersDot_type: 'dots',
@@ -39,7 +38,7 @@ export class TypeqrcodeComponent implements OnInit, OnChanges {
     },
     {
       name: 'IMG2',
-      link_img: 'https://assets.icheck.vn/image/2022/appId_null/1/a43b5b91c65a75536877212714bb1ec7.png',
+      link_img: './assets/images/download20221006083517.png',
       dotstyle: 'classy',
       cornerSquareType: 'extra-rounded',
       cornersDot_type: 'None',
@@ -48,7 +47,7 @@ export class TypeqrcodeComponent implements OnInit, OnChanges {
     },
     {
       name: 'IMG3',
-      link_img: 'https://assets.icheck.vn/image/2022/icheck/1/09f122c99c040f09f278be0872ee2044.png',
+      link_img: './assets/images/download20221006083723.png',
       dotstyle: 'square',
       cornerSquareType: 'None',
       cornersDot_type: 'dots',
@@ -57,7 +56,7 @@ export class TypeqrcodeComponent implements OnInit, OnChanges {
     },
     {
       name: 'IMG4',
-      link_img: 'https://assets.icheck.vn/image/2022/icheck/1/7e90f5c8437cd261d7712c73f5dddd49.png',
+      link_img: './assets/images/download20221006083849.png',
       dotstyle: 'classy-rounded',
       cornerSquareType: 'None',
       cornersDot_type: 'None',
@@ -66,7 +65,7 @@ export class TypeqrcodeComponent implements OnInit, OnChanges {
     },
     {
       name: 'IMG5',
-      link_img: 'https://assets.icheck.vn/image/2022/icheck/1/a4c2d9b6a49cdb608df42df58fc2ed7c.png',
+      link_img: './assets/images/download20221006083919.png',
       dotstyle: 'rounded',
       cornerSquareType: 'None',
       cornersDot_type: 'None',
@@ -75,7 +74,7 @@ export class TypeqrcodeComponent implements OnInit, OnChanges {
     },
     {
       name: 'IMG6',
-      link_img: 'https://assets.icheck.vn/image/2022/icheck/1/daeb53172c3a465e040cf4b435c5de56.png',
+      link_img: './assets/images/download20221006083945.png',
       dotstyle: 'dots',
       cornerSquareType: 'extra-rounded',
       cornersDot_type: 'None',
@@ -86,7 +85,7 @@ export class TypeqrcodeComponent implements OnInit, OnChanges {
   options_square: image_obj[] = [
     {
       name: 'IMG1',
-      link_img: 'https://assets.icheck.vn/image/2022/icheck/5/82552e6141c33dc923fa0b7526ad135d.png',
+      link_img: './assets/images/download20221006084746.png',
       dotstyle: 'square',
       cornerSquareType: 'square',
       cornersDot_type: 'square',
@@ -95,7 +94,7 @@ export class TypeqrcodeComponent implements OnInit, OnChanges {
     },
     {
       name: 'IMG2',
-      link_img: 'https://assets.icheck.vn/image/2022/icheck/5/a92567e79a5ee4cf5adff7ce941ae0fe.png',
+      link_img: './assets/images/download20221006085220.png',
       dotstyle: 'classy',
       cornerSquareType: 'extra-rounded',
       cornersDot_type: 'None',
@@ -104,7 +103,7 @@ export class TypeqrcodeComponent implements OnInit, OnChanges {
     },
     {
       name: 'IMG3',
-      link_img: 'https://assets.icheck.vn/image/2022/icheck/5/6d078cf79f1b4e85412fa942eb22488b.png',
+      link_img: './assets/images/download20221006085319.png',
       dotstyle: 'square',
       cornerSquareType: 'None',
       cornersDot_type: 'dots',
@@ -113,7 +112,7 @@ export class TypeqrcodeComponent implements OnInit, OnChanges {
     },
     {
       name: 'IMG4',
-      link_img: 'https://assets.icheck.vn/image/2022/icheck/5/e0ed62508cc6717a4acac0eeda43a783.png',
+      link_img: './assets/images/download20221006085339.png',
       dotstyle: 'classy-rounded',
       cornerSquareType: 'None',
       cornersDot_type: 'None',
@@ -122,7 +121,7 @@ export class TypeqrcodeComponent implements OnInit, OnChanges {
     },
     {
       name: 'IMG5',
-      link_img: 'https://assets.icheck.vn/image/2022/icheck/5/342fd0a309a1d949eef1e14a38580b9d.png',
+      link_img: './assets/images/download20221006085357.png',
       dotstyle: 'rounded',
       cornerSquareType: 'None',
       cornersDot_type: 'None',
@@ -131,7 +130,7 @@ export class TypeqrcodeComponent implements OnInit, OnChanges {
     },
     {
       name: 'IMG6',
-      link_img: 'https://assets.icheck.vn/image/2022/icheck/5/7c4923185c02702fc2efc7b2df2c77c7.png',
+      link_img: './assets/images/download20221006085413.png',
       dotstyle: 'dots',
       cornerSquareType: 'extra-rounded',
       cornersDot_type: 'None',
@@ -143,36 +142,50 @@ export class TypeqrcodeComponent implements OnInit, OnChanges {
   option_defalut: image_obj[] = [
     {
       name: 'IMG_DF1',
-      link_img: 'https://marketing.icheck.vn/qrcode-free/_nuxt/img/shape1.ae290d2.png',
+      link_img: './assets/images/IMGDF_1.png',
       dotstyle: 'square',
       cornerSquareType: 'None',
       cornersDot_type: 'None',
-      background_color: '#ffffff',
+      background_color: '#efecec',
       dotcolor: '#000000'
     },
     {
       name: 'IMG_DF2',
-      link_img: 'https://marketing.icheck.vn/qrcode-free/_nuxt/img/shape2.2f8f162.png',
+      link_img: './assets/images/IMGDF_2.png',
       dotstyle: 'dots',
       cornerSquareType: 'square',
       cornersDot_type: 'dots',
-      background_color: '#ffffff',
+      background_color: '#efecec',
       dotcolor: '#000000'
     },
     {
       name: 'IMG_DF3',
-      link_img: 'https://marketing.icheck.vn/qrcode-free/_nuxt/img/shape3.9327936.png',
+      link_img: './assets/images/IMGDF_3.png',
       dotstyle: 'dots',
       cornerSquareType: 'None',
       cornersDot_type: 'None',
-      background_color: '#ffffff',
+      background_color: '#efecec',
       dotcolor: '#000000'
+    }
+  ];
+  option_icon = [
+    {
+      name: 'IMG_IC1',
+      link_img: './assets/images/ic_facebook.png'
+    },
+    {
+      name: 'IMG_IC2',
+      link_img: './assets/images/ic_instagram.png'
+    },
+    {
+      name: 'IMG_IC3',
+      link_img: './assets/images/ic_zalo.png'
     }
   ];
 
   profesional = true;
 
-  @Input() data = 'localhost';
+  @Input() data = ' ';
   image = '';
   witdth = 300;
   height = 300;
@@ -180,15 +193,17 @@ export class TypeqrcodeComponent implements OnInit, OnChanges {
   dotstyle = "square"; //"square" hoặc "dots"
   dotcolor = '#000000';
   background_color = '#ffffff';
-  shape = 'circle' //"square" hoặc "circle"
+  shape = 'square' //"square" hoặc "circle"
   cornersDot_type = 'None';
   cornerSquareType = 'None';
   op_tion: optioncs = new optioncs();
-
+  thietke_draw = true;
+  chon_icon = '';
+  icon_count = 0;
   ngOnInit(): void {
     this.shape = this.profesional ? 'circle' : 'square';
     this._mau_chon = this.profesional ? 'exist' : 'self';
-    this.change_val();
+    this.select_img(this.profesional ? 'IMG1' : 'IMG_DF1');
   }
   onHinhChange(gt: string) {
     this.shape = gt;
@@ -196,13 +211,15 @@ export class TypeqrcodeComponent implements OnInit, OnChanges {
   }
   onMauChange(gt: string) {
     this._mau_chon = gt;
+    if (this._mau_chon == 'exist')
+      this.select_img('IMG1');
+    else
+      this.select_img('IMG_DF1');
   }
   change_maunen() {
-    console.log(this.background_color);
     this.change_val();
   }
   change_maucode() {
-    console.log(this.dotcolor);
     this.change_val();
   }
   select_img(img_name: string) {
@@ -255,14 +272,54 @@ export class TypeqrcodeComponent implements OnInit, OnChanges {
     this.option_output.emit(this.op_tion);
   }
   getFiles(event: any) {
+    var newFileList = Array.from(event.target.files);
+    console.log(newFileList);
     if (event.target.files.length > 0) {
       const reader = new FileReader();
       reader.readAsDataURL(event.target.files[0]); // read file as data url
       reader.onload = (event2: any) => { // called once readAsDataURL is completed
+        debugger;
         this.image = event2.target.result;
+        let date_now = new Date();
+        let _dem = 'IMG_TEMP' + this.datepipe.transform(date_now, 'yyyyMMddHHmmss');
+        let it = {
+          name: _dem,
+          link_img: event2.target.result
+        };
+        this.chon_icon = _dem;
+        this.option_icon.push(it);
         this.change_val();
       }
     }
   }
+  drawer_card(gt: string) {
+    this.thietke_draw = !this.thietke_draw;
+  }
 
+  action_select_ic(name_ic: string) {
+    this.chon_icon = name_ic;
+    let temp_data = this.option_icon.filter(ft => ft.name == name_ic);
+    this.image = temp_data[0].link_img;
+    this.change_val();
+  }
+  action_remove_ic(name_ic: string) {
+    this.chon_icon = '';
+    this.image = '';
+    this.reset();
+    this.change_val();
+    if (name_ic.indexOf('IMG_TEMP') > -1) {
+      const index = this.option_icon.findIndex(t => t.name == name_ic)
+      if (index > -1) {
+        this.option_icon.splice(index, 1);
+      }
+    }
+  }
+  reset() {
+    if (this.profesional) {
+      this.filepro.nativeElement.value = "";
+    } else {
+      this.file.nativeElement.value = "";
+    }
+
+  }
 }

@@ -32,6 +32,12 @@ export class QrcodeComponent implements OnInit, OnChanges {
         color: this._op_tion.dotcolor,
         type: this._op_tion.dotstyle == 'square' ? "square" : "dots",
       },
+      cornersDotOptions: {
+        type: this.get_cornersDot_type(this._op_tion.cornersDot_type),
+      },
+      cornersSquareOptions: {
+        type: this.get_CornerSquareType(this._op_tion.cornerSquareType),
+      },
       backgroundOptions: {
         color: this._op_tion.background_color,
         round: this._op_tion.shape == 'square' ? 0 : 1000,
@@ -46,6 +52,7 @@ export class QrcodeComponent implements OnInit, OnChanges {
         "errorCorrectionLevel": "H"
       },
     };
+    console.log(JSON.stringify(this.config));
   }
   qrcode!: NgxQrcodeStylingComponent;
   public config: Options = {
@@ -83,7 +90,6 @@ export class QrcodeComponent implements OnInit, OnChanges {
     return (window as any).unescape(encodeURIComponent(data));;
   }
   update_qr() {
-
     if (this.qrcode != undefined) {
       this.qrcode.update(this.qrcode.config, {
         width: this._op_tion.witdth,

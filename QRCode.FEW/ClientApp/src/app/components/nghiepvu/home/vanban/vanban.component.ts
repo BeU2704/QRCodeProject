@@ -30,19 +30,7 @@ export class VanbanComponent implements OnInit {
     this.status = '';
   }
   now: Date = new Date();
-  op_tion: optioncs = {
-    data: "localhost",
-    image: '',
-    witdth: this.witdth,
-    height: this.height,
-    margin: 0,
-    dotstyle: "square",
-    cornersDot_type: 'None',
-    cornerSquareType: 'None',
-    dotcolor: '#000000',
-    background_color: '#ffffff',
-    shape: 'square'
-  };
+  op_tion: optioncs = new optioncs();
   taiqr() {
     this.now = new Date();
     this.status = 'download' + this.datepipe.transform(this.now, 'yyyyMMddHHmmss');
@@ -66,7 +54,7 @@ export class VanbanComponent implements OnInit {
   onchange_text(gt: any) {
     this.data = gt.value;
     if (gt.value === '' || gt.value === null)
-      this.data = "localhost";
+      this.data = " ";
     //this.change_val();
   }
   change_val() {
