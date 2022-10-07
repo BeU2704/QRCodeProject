@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DichvuComponent } from './components/nghiepvu/dichvu/dichvu.component';
 
-const routes: Routes = [  
-  { path: 'dich-vu', component: DichvuComponent },
-  { path: 'qrfree', loadChildren: () => import('./components/nghiepvu/home/home.module').then(m => m.HomeModule) },
-  { path: '', redirectTo: 'qrfree', pathMatch: 'full' }
+const routes: Routes = [
+  { path: 'qrcode-free', loadChildren: () => import('./components/nghiepvu/freeview/freeview.module').then(m => m.FreeviewModule) },
+  { path: 'portal', loadChildren: () => import('./components/nghiepvu/proview/proview.module').then(m => m.ProviewModule) },
+  { path: '', redirectTo: 'qrcode-free', pathMatch: 'full' }
 ];
 
 @NgModule({

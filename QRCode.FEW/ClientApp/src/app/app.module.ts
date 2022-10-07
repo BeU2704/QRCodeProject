@@ -5,23 +5,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
-import {DatePipe} from '@angular/common';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import { DichvuComponent } from './components/nghiepvu/dichvu/dichvu.component';
-import { SigninComponent } from './components/share/signin/signin.component';
+import { DatePipe } from '@angular/common';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DichvuComponent,
-    SigninComponent,  
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    FormsModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

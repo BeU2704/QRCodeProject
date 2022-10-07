@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { optioncs } from 'src/app/models/optioncs';
-import { ContentdgComponent } from '../../../share/contentdg/contentdg.component';
 import { DatePipe } from '@angular/common';
+import { ContentdgComponent } from 'src/app/components/share/contentdg/contentdg.component';
 
 @Component({
   selector: 'app-vanban',
@@ -75,4 +75,5 @@ export class VanbanComponent implements OnInit {
   xuat_qr(item: optioncs) {
     this.op_tion = item;
   }
+
 }
