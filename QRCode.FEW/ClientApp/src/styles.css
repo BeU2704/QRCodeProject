@@ -43,6 +43,7 @@ video {
 
 img {
     border-style: solid;
+    vertical-align: middle;
 }
 
 .header-mobile-nav[data-v-7b4125dc]::-webkit-scrollbar {

@@ -1,19 +1,27 @@
-import { Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
-  selector: 'app-proview',
-  templateUrl: './proview.component.html',
-  styleUrls: ['./proview.component.css']
+  selector: 'app-sidenav',
+  templateUrl: './sidenav.component.html',
+  styleUrls: ['./sidenav.component.css']
 })
-export class ProviewComponent implements OnInit {
-  showNav = false;
+export class SidenavComponent implements OnInit, OnChanges {
+  showNav = true;
   hover_status = false;
   menu_pr_select = '';
   arr_menu_select: string[] = [];
   arr_menu_temp: string[] = [];
   status_menu = false;
+  _drawer_status = false;
+  @Input() set drawer_status(gt: boolean) {
+    this._drawer_status = gt;
+  };
+  constructor() { }
+  ngOnChanges(changes: SimpleChanges): void {
+    this.drawer_menu();
+  }
+  name_link = '';
   ngOnInit(): void {
-
   }
   hover_menu() {
     this.hover_status = true;
@@ -47,5 +55,8 @@ export class ProviewComponent implements OnInit {
   check_visible(gt: string) {
     const index = this.arr_menu_select.findIndex(t => t == gt);
     return index > -1 ? true : false;
+  }
+  select_link(gt: string) {
+    this.name_link = gt;
   }
 }

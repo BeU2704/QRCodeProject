@@ -1,0 +1,31 @@
+<div class="layoutQ px-[1px] py-[15px]">
+    <h3 class="headerQ mr-[15px] ml-[10px] mb-0 font-sans font-medium text-[1.75rem] leading-[1.2] text-[#000000d9]">
+        Thêm mới sản phẩm</h3>
+</div>
+<section class="bg-[#8080801c] px-[15px] mb-[15px]">
+    <form (ngSubmit)="PreviewData()" [formGroup]="DataForm" class="w-1/2">
+        <div class="grid grid-cols-2 gap-4">
+            <app-custominput *ngFor="let it of data" [form]="DataForm" [values]="it"
+                (out_delete)="delete_input_temp($event)"></app-custominput>
+        </div>
+    </form>
+    <div class="w-1/2 my-2" [ngClass]="{'block':status_type,'hidden':!status_type}">
+        <app-addinput [dynamic_num]="dynamic_num" (out_data)="add_input($event)" (out_exist)="exit_thempro($event)"
+            (out_delete)="delete_input_temp($event)">
+        </app-addinput>
+    </div>
+    <div class="flex">
+        <div class="relative">
+            <button type="button" (click)="status_type=!status_type"
+                class="leading-[1.5] relative inline-block font-normal text-center cursor-pointer h-8 px-[15px] bg-[#196898] text-white text-[13px] mr-[5px] mb-[5px]">Thêm
+                thuộc tính</button>
+        </div>
+        <button type="button" (click)="PreviewData()"
+            class="leading-[1.5] relative inline-block font-normal text-center cursor-pointer h-8 px-[15px] bg-[#196898] text-white text-[13px] mr-[5px] mb-[5px]">Cập
+            nhật</button>
+        <button routerLink="/portal/products" type="button"
+            class="leading-[1.5] relative inline-block font-normal text-center cursor-pointer h-8 px-[15px] bg-[#196898] text-white text-[13px] mr-[5px] mb-[5px]">Quay
+            lại</button>
+    </div>
+</section>
+<span>{{payLoad}}</span>
