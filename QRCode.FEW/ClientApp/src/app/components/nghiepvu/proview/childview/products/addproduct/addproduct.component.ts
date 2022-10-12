@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { Inputcustom } from 'src/app/models/Inputcustom';
+import { HttpClient, HttpEventType, HttpErrorResponse } from '@angular/common/http';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { DialogUploadComponent } from 'src/app/shared/dialog-upload/dialog-upload.component';
 
 @Component({
   selector: 'app-addproduct',
@@ -13,7 +17,9 @@ export class AddproductComponent implements OnInit {
   data!: Inputcustom[];
   dynamic_num = 0;
   ten_input = 'txt';
-  constructor() {
+  src_img = '';
+
+  constructor(private dialog: MatDialog) {
     this.data = [{
       Title: 'Mã sản phẩm',
       name: 'Ma_sp',
@@ -22,7 +28,7 @@ export class AddproductComponent implements OnInit {
       type: 'text',
       element: [],
       is_delete: false,
-      value_ip:'1'
+      value_ip: ''
     },
     {
       Title: 'Tên sản phẩm',
@@ -32,7 +38,17 @@ export class AddproductComponent implements OnInit {
       type: 'text',
       element: [],
       is_delete: false,
-      value_ip:'2'
+      value_ip: ''
+    },
+    {
+      Title: 'Giá bán',
+      name: 'Gia_sp',
+      is_require: true,
+      is_visible: true,
+      type: 'text',
+      element: [],
+      is_delete: false,
+      value_ip: ''
     }];
     this.DataForm = this.generateFormControls();
   }
@@ -64,5 +80,22 @@ export class AddproductComponent implements OnInit {
     console.log(gt);
     let index = this.data.findIndex(t => t.name == gt);
     this.data.splice(index, 1);
+  }
+  get_image_upload(gt: any) {
+    this.src_img = gt.value;
+  }
+  str_st='';
+  showDialog() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = "500px";
+    dialogConfig.height = "310px";
+    this.dialog.open(DialogUploadComponent, dialogConfig).afterClosed().subscribe(
+      res => {
+        this.str_st=res;
+        console.log(this.str_st);
+      }
+    );
   }
 }

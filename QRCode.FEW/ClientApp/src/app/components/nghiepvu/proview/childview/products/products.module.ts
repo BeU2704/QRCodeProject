@@ -3,19 +3,16 @@ import { CommonModule } from '@angular/common';
 
 import { ProductsRoutingModule } from './products-routing.module';
 import { ProductsComponent } from './products.component';
-import { AddproductComponent } from './addproduct/addproduct.component';
 import { MatTableModule } from '@angular/material/table';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import { CustominputComponent } from './custominput/custominput.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AddinputComponent } from './addinput/addinput.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { AddproductComponent } from './addproduct/addproduct.component';
 
 @NgModule({
   declarations: [
     ProductsComponent,
-    AddproductComponent,
-    CustominputComponent,
-    AddinputComponent
+    AddproductComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +20,8 @@ import { AddinputComponent } from './addinput/addinput.component';
     MatTableModule,
     MatCheckboxModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ]
 })
 export class ProductsModule { }

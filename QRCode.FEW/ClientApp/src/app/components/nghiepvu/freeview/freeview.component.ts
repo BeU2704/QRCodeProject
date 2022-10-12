@@ -51,7 +51,6 @@ export class FreeviewComponent implements OnInit {
     if (status === 'login') {
       this.dialog.open(LoginComponent, dialogConfig).afterClosed().subscribe(
         res => {
-          console.log('aaaaa');
           this.is_login = true;
         }
       );
