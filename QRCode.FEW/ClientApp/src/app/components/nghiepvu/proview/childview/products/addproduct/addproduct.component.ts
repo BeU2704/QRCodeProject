@@ -89,8 +89,9 @@ export class AddproductComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = "500px";
-    dialogConfig.height = "310px";
+    dialogConfig.width = "520px";
+    // dialogConfig.height = "310px";
+    dialogConfig.panelClass = "pd_dialog_none";
     this.dialog.open(DialogUploadComponent, dialogConfig).afterClosed().subscribe(
       res => {
         this.str_st=res;
