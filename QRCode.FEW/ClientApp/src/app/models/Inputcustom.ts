@@ -6,7 +6,7 @@ export interface Inputcustom {
   is_require: boolean;
   is_visible: boolean;
   type: string;
-  element: Elemet_input[];
+  thuoctinh: string;
   is_delete: boolean;
   value_ip: string;
 }

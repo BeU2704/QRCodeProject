@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable, fromEvent } from 'rxjs';
 import { map, startWith, takeUntil } from 'rxjs/operators';
@@ -27,7 +27,7 @@ export class AutocompleinputComponent implements OnInit {
       stt: 1,
       name: 'Item 1',
       mota: 'Danh mục 1',
-    },
+    }, 
     {
       stt: 2,
       name: 'Item 2',
@@ -62,10 +62,18 @@ export class AutocompleinputComponent implements OnInit {
   rotate_it = false;
   @ViewChild('statesAutocomplete') statesAutocompleteRef!: MatAutocomplete;
   @ViewChild(MatAutocompleteTrigger) autocompleteTrigger!: MatAutocompleteTrigger;
+  @Output() val_out = new EventEmitter<string>();
+  _value_input = '';
+  @Input() set value_input(gt: string) {
+    this._value_input = gt;
+  }
   ngOnInit(): void {
   }
+  close_event(gt: string) {
+    this.val_out.emit(gt);
+  }
   autocompleteScroll() {
-    this.rotate_it=true;
+    this.rotate_it = true;
     setTimeout(() => {
       if (
         this.statesAutocompleteRef &&
@@ -106,7 +114,8 @@ export class AutocompleinputComponent implements OnInit {
     };
     this.arr_item = this.temp_item;
   }
-  auto_change(val: string) {
+  auto_change(obj_input: any) {
+    let val = obj_input.value;
     this.arr_item = this.temp_item.filter(option => option.mota.toLowerCase().includes(val.toLowerCase()));
   }
 }

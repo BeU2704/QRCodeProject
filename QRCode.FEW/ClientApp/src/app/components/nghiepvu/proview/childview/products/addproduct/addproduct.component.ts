@@ -5,6 +5,7 @@ import { Inputcustom } from 'src/app/models/Inputcustom';
 import { HttpClient, HttpEventType, HttpErrorResponse } from '@angular/common/http';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { DialogUploadComponent } from 'src/app/shared/dialog-upload/dialog-upload.component';
+import { AngularEditorConfig } from '@kolkov/angular-editor';
 
 @Component({
   selector: 'app-addproduct',
@@ -15,10 +16,65 @@ export class AddproductComponent implements OnInit {
   DataForm: FormGroup = new FormGroup({});
   payLoad: any;
   data!: Inputcustom[];
+  data_macdinh!: Inputcustom[];
+  data_mota!: Inputcustom[];
+  data_khac!: Inputcustom[];
   dynamic_num = 0;
   ten_input = 'txt';
   src_img = '';
-
+  src_daidien = '';
+  src_sanpham = '';
+  src_logo = '';
+  src_chungchi = '';
+  src_mavach = '';
+  src_video = '';
+  htmlContent = '';
+  editorConfig: AngularEditorConfig = {
+    editable: true,
+    spellcheck: true,
+    height: 'auto',
+    minHeight: '0',
+    maxHeight: 'auto',
+    width: 'auto',
+    minWidth: '0',
+    translate: 'yes',
+    enableToolbar: true,
+    showToolbar: true,
+    placeholder: 'Enter text here...',
+    defaultParagraphSeparator: '',
+    defaultFontName: '',
+    defaultFontSize: '',
+    fonts: [
+      { class: 'arial', name: 'Arial' },
+      { class: 'times-new-roman', name: 'Times New Roman' },
+      { class: 'calibri', name: 'Calibri' },
+      { class: 'comic-sans-ms', name: 'Comic Sans MS' }
+    ],
+    customClasses: [
+      {
+        name: 'quote',
+        class: 'quote',
+      },
+      {
+        name: 'redText',
+        class: 'redText'
+      },
+      {
+        name: 'titleText',
+        class: 'titleText',
+        tag: 'h1',
+      },
+    ],
+    //uploadUrl: 'v1/image',
+    // upload: (file: File) => { ... },
+    uploadWithCredentials: false,
+    sanitize: true,
+    toolbarPosition: 'top',
+    toolbarHiddenButtons: [
+      ['bold', 'italic'],
+      ['fontSize']
+    ]
+  };
   constructor(private dialog: MatDialog) {
     this.data = [{
       Title: 'Mã sản phẩm',
@@ -26,7 +82,7 @@ export class AddproductComponent implements OnInit {
       is_require: true,
       is_visible: true,
       type: 'text',
-      element: [],
+      thuoctinh: 'macdinh',
       is_delete: false,
       value_ip: ''
     },
@@ -36,9 +92,19 @@ export class AddproductComponent implements OnInit {
       is_require: true,
       is_visible: true,
       type: 'text',
-      element: [],
+      thuoctinh: 'macdinh',
       is_delete: false,
       value_ip: ''
+    },
+    {
+      Title: 'Danh mục',
+      name: 'Danh_muc',
+      is_require: true,
+      is_visible: true,
+      type: 'dropdown',
+      thuoctinh: 'macdinh',
+      is_delete: false,
+      value_ip: '123'
     },
     {
       Title: 'Giá bán',
@@ -46,10 +112,23 @@ export class AddproductComponent implements OnInit {
       is_require: true,
       is_visible: true,
       type: 'text',
-      element: [],
+      thuoctinh: 'macdinh',
+      is_delete: false,
+      value_ip: ''
+    },
+    {
+      Title: 'Slogan sản phẩm',
+      name: 'Slogan_sp',
+      is_require: true,
+      is_visible: true,
+      type: 'text',
+      thuoctinh: 'macdinh',
       is_delete: false,
       value_ip: ''
     }];
+    this.data_macdinh = this.data.filter(t => t.thuoctinh == 'macdinh');
+    this.data_mota = this.data.filter(t => t.thuoctinh == 'mota');
+    this.data_khac = this.data.filter(t => t.thuoctinh == 'khac');
     this.DataForm = this.generateFormControls();
   }
   status_type = false;
@@ -58,7 +137,7 @@ export class AddproductComponent implements OnInit {
   }
   PreviewData() {
     this.payLoad = JSON.stringify(this.DataForm.getRawValue());
-    console.log(this.payLoad);
+    // console.log(this.payLoad);
     this.data.forEach(element => {
       element.value_ip = this.DataForm.controls[element.name].value;
     });
@@ -75,6 +154,12 @@ export class AddproductComponent implements OnInit {
     console.log(tmp);
     this.dynamic_num = this.dynamic_num + 1;
     this.data.push(tmp);
+    if (tmp.thuoctinh == 'khac') {
+      this.data_khac.push(tmp);
+    }
+    if (tmp.thuoctinh == 'mota') {
+      this.data_mota.push(tmp);
+    }
     this.DataForm.addControl(tmp.name, new FormControl(''));
   }
   exit_thempro(gt: boolean) {
@@ -89,7 +174,7 @@ export class AddproductComponent implements OnInit {
     this.src_img = gt.value;
   }
   str_st = '';
-  showDialog() {
+  showDialog(gt: string) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
@@ -98,8 +183,20 @@ export class AddproductComponent implements OnInit {
     dialogConfig.panelClass = "pd_dialog_none";
     this.dialog.open(DialogUploadComponent, dialogConfig).afterClosed().subscribe(
       res => {
-        this.str_st = res;
-        console.log(this.str_st);
+        if (res != null && res != '' && res != undefined) {
+          if (gt == 'daidien') {
+            this.src_daidien = '';
+            this.src_daidien = res;
+          }
+          if (gt == 'sanpham') {
+            this.src_sanpham = '';
+            this.src_sanpham = res;
+          }
+          if (gt == 'logo') {
+            this.src_sanpham = '';
+            this.src_logo = res;
+          }
+        }
       }
     );
   }

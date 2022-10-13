@@ -32,7 +32,7 @@ export class AddinputComponent implements OnInit {
       is_require: true,
       is_visible: true,
       type: 'text',
-      element: [],
+      thuoctinh: 'khac',
       is_delete: true,
       value_ip: _value.value
     };

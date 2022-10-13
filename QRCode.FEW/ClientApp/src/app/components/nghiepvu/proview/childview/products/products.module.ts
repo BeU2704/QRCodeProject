@@ -8,6 +8,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AddproductComponent } from './addproduct/addproduct.component';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AddproductComponent } from './addproduct/addproduct.component';
     MatCheckboxModule,
     ReactiveFormsModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    AngularEditorModule
   ]
 })
 export class ProductsModule { }

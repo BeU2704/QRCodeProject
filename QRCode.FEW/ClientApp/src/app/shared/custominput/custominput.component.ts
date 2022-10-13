@@ -23,5 +23,7 @@ export class CustominputComponent implements OnInit {
   delete_input(gt: string) {
     this.out_delete.emit(gt);
   }
-
+  setval_out(gt:any){
+    this.form.controls[this.values.name].setValue(gt);
+  }
 }

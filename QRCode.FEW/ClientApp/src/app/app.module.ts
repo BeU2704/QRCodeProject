@@ -9,6 +9,8 @@ import { DatePipe } from '@angular/common';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatDialogModule,
     MatAutocompleteModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularEditorModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
