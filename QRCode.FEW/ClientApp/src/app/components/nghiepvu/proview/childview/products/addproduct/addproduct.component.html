@@ -94,15 +94,13 @@
             <span class="block absolute -top-3 left-2 bg-[#fffdfd] px-1 font-bold text-sm">Mô tả sản phẩm</span>
         </div>
         <div class="grid grid-cols-3 gap-4">
-            <app-custominput *ngFor="let it of data_khac" [form]="DataForm" [values]="it"
+            <app-custominput *ngFor="let it of data_mota" [form]="DataForm" [values]="it"
                 [ngClass]="{'col-span-2':it.name=='Ten_sp' || it.name=='Danh_muc'|| it.name=='Slogan_sp'}"
                 (out_delete)="delete_input_temp($event)"></app-custominput>
             <button type="button" (click)="status_type=!status_type" class="mt-[23px] leading-[1.5] relative inline-block font-normal text-center cursor-pointer 
         h-8 px-[15px] bg-white text-[#196898] text-[13px] mr-[5px] mb-[5px] border border-solid border-[#196898]">
                 <i class="fa fa-plus mr-1" aria-hidden="true"></i>Thêm thuộc tính</button>
         </div>
-
-
         <div class="border border-solid border-[#6867671c] h-[1px] w-full relative my-4">
             <span class="block absolute -top-3 left-2 bg-[#fffdfd] px-1 font-bold text-sm">Thông tin khác</span>
         </div>
