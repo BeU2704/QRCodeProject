@@ -59,6 +59,10 @@ export class AddproductComponent implements OnInit {
   PreviewData() {
     this.payLoad = JSON.stringify(this.DataForm.getRawValue());
     console.log(this.payLoad);
+    this.data.forEach(element => {
+      element.value_ip = this.DataForm.controls[element.name].value;
+    });
+    console.log(JSON.stringify(this.data));
   }
   generateFormControls() {
     let tempGroup: FormGroup = new FormGroup({});
@@ -84,7 +88,7 @@ export class AddproductComponent implements OnInit {
   get_image_upload(gt: any) {
     this.src_img = gt.value;
   }
-  str_st='';
+  str_st = '';
   showDialog() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
@@ -94,7 +98,7 @@ export class AddproductComponent implements OnInit {
     dialogConfig.panelClass = "pd_dialog_none";
     this.dialog.open(DialogUploadComponent, dialogConfig).afterClosed().subscribe(
       res => {
-        this.str_st=res;
+        this.str_st = res;
         console.log(this.str_st);
       }
     );

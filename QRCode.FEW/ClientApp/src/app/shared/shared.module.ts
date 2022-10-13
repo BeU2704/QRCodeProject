@@ -11,6 +11,7 @@ import { AutocompleinputComponent } from './autocompleinput/autocompleinput.comp
 import { UploadinputComponent } from './uploadinput/uploadinput.component';
 import { DialogUploadComponent } from './dialog-upload/dialog-upload.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ThongtinkhacComponent } from './thongtinkhac/thongtinkhac.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     TypeqrcodeComponent,
     AutocompleinputComponent,
     UploadinputComponent,
-    DialogUploadComponent
+    DialogUploadComponent,
+    ThongtinkhacComponent
   ],
   imports: [
     CommonModule, ReactiveFormsModule, FormsModule,
@@ -30,6 +32,6 @@ import { MatDialogModule } from '@angular/material/dialog';
     AddinputComponent,
     QrcodeComponent,
     TypeqrcodeComponent,
-    AutocompleinputComponent, UploadinputComponent,DialogUploadComponent]
+    AutocompleinputComponent, UploadinputComponent,DialogUploadComponent,ThongtinkhacComponent]
 })
 export class SharedModule { }
