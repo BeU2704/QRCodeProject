@@ -6,7 +6,7 @@ export interface Inputcustom {
   is_require: boolean;
   is_visible: boolean;
   type: string;
-  thuoctinh: string;
+  nhom: string;
   is_delete: boolean;
   value_ip: string;
 }

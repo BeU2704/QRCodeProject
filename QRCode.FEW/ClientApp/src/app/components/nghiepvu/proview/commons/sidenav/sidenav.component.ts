@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-sidenav',
@@ -16,12 +16,16 @@ export class SidenavComponent implements OnInit, OnChanges {
   @Input() set drawer_status(gt: boolean) {
     this._drawer_status = gt;
   };
+  @Output() ten_form = new EventEmitter();
   constructor() { }
   ngOnChanges(changes: SimpleChanges): void {
     this.drawer_menu();
   }
   name_link = '';
   ngOnInit(): void {
+  }
+  menu_click(gt: string) {
+    this.ten_form.emit(gt);
   }
   hover_menu() {
     this.hover_status = true;

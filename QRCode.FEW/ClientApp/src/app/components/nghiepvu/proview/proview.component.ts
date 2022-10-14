@@ -12,8 +12,13 @@ export class ProviewComponent implements OnInit {
   arr_menu_select: string[] = [];
   arr_menu_temp: string[] = [];
   status_menu = false;
+  ten_form_visible = '';
   ngOnInit(): void {
 
+  }
+  showtenform(gt: any) {
+    debugger;
+    this.ten_form_visible = gt;
   }
   hover_menu() {
     this.hover_status = true;

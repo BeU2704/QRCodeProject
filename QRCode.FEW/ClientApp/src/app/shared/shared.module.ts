@@ -12,6 +12,8 @@ import { UploadinputComponent } from './uploadinput/uploadinput.component';
 import { DialogUploadComponent } from './dialog-upload/dialog-upload.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ThongtinkhacComponent } from './thongtinkhac/thongtinkhac.component';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+import { EditorlayoutComponent } from './editorlayout/editorlayout.component';
 
 @NgModule({
   declarations: [
@@ -22,16 +24,17 @@ import { ThongtinkhacComponent } from './thongtinkhac/thongtinkhac.component';
     AutocompleinputComponent,
     UploadinputComponent,
     DialogUploadComponent,
-    ThongtinkhacComponent
+    ThongtinkhacComponent,
+    EditorlayoutComponent
   ],
   imports: [
     CommonModule, ReactiveFormsModule, FormsModule,
-    NgxQrcodeStylingModule, MatAutocompleteModule,MatDialogModule
+    NgxQrcodeStylingModule, MatAutocompleteModule, MatDialogModule, AngularEditorModule
   ], exports: [
     CustominputComponent,
     AddinputComponent,
     QrcodeComponent,
     TypeqrcodeComponent,
-    AutocompleinputComponent, UploadinputComponent,DialogUploadComponent,ThongtinkhacComponent]
+    AutocompleinputComponent, UploadinputComponent, DialogUploadComponent, ThongtinkhacComponent, EditorlayoutComponent]
 })
 export class SharedModule { }

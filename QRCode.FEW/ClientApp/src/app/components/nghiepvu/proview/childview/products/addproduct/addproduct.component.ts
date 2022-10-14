@@ -1,11 +1,8 @@
 import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { Observable } from 'rxjs';
 import { Inputcustom } from 'src/app/models/Inputcustom';
-import { HttpClient, HttpEventType, HttpErrorResponse } from '@angular/common/http';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { DialogUploadComponent } from 'src/app/shared/dialog-upload/dialog-upload.component';
-import { AngularEditorConfig } from '@kolkov/angular-editor';
 
 @Component({
   selector: 'app-addproduct',
@@ -28,53 +25,8 @@ export class AddproductComponent implements OnInit {
   src_chungchi = '';
   src_mavach = '';
   src_video = '';
-  htmlContent = '';
-  editorConfig: AngularEditorConfig = {
-    editable: true,
-    spellcheck: true,
-    height: 'auto',
-    minHeight: '0',
-    maxHeight: 'auto',
-    width: 'auto',
-    minWidth: '0',
-    translate: 'yes',
-    enableToolbar: true,
-    showToolbar: true,
-    placeholder: 'Enter text here...',
-    defaultParagraphSeparator: '',
-    defaultFontName: '',
-    defaultFontSize: '',
-    fonts: [
-      { class: 'arial', name: 'Arial' },
-      { class: 'times-new-roman', name: 'Times New Roman' },
-      { class: 'calibri', name: 'Calibri' },
-      { class: 'comic-sans-ms', name: 'Comic Sans MS' }
-    ],
-    customClasses: [
-      {
-        name: 'quote',
-        class: 'quote',
-      },
-      {
-        name: 'redText',
-        class: 'redText'
-      },
-      {
-        name: 'titleText',
-        class: 'titleText',
-        tag: 'h1',
-      },
-    ],
-    //uploadUrl: 'v1/image',
-    // upload: (file: File) => { ... },
-    uploadWithCredentials: false,
-    sanitize: true,
-    toolbarPosition: 'top',
-    toolbarHiddenButtons: [
-      ['bold', 'italic'],
-      ['fontSize']
-    ]
-  };
+  open_menu_mota = false;
+
   constructor(private dialog: MatDialog) {
     this.data = [{
       Title: 'Mã sản phẩm',
@@ -82,7 +34,7 @@ export class AddproductComponent implements OnInit {
       is_require: true,
       is_visible: true,
       type: 'text',
-      thuoctinh: 'macdinh',
+      nhom: 'macdinh',
       is_delete: false,
       value_ip: ''
     },
@@ -92,7 +44,7 @@ export class AddproductComponent implements OnInit {
       is_require: true,
       is_visible: true,
       type: 'text',
-      thuoctinh: 'macdinh',
+      nhom: 'macdinh',
       is_delete: false,
       value_ip: ''
     },
@@ -102,7 +54,7 @@ export class AddproductComponent implements OnInit {
       is_require: true,
       is_visible: true,
       type: 'dropdown',
-      thuoctinh: 'macdinh',
+      nhom: 'macdinh',
       is_delete: false,
       value_ip: '123'
     },
@@ -112,7 +64,7 @@ export class AddproductComponent implements OnInit {
       is_require: true,
       is_visible: true,
       type: 'text',
-      thuoctinh: 'macdinh',
+      nhom: 'macdinh',
       is_delete: false,
       value_ip: ''
     },
@@ -122,13 +74,14 @@ export class AddproductComponent implements OnInit {
       is_require: true,
       is_visible: true,
       type: 'text',
-      thuoctinh: 'macdinh',
+      nhom: 'macdinh',
       is_delete: false,
       value_ip: ''
-    }];
-    this.data_macdinh = this.data.filter(t => t.thuoctinh == 'macdinh');
-    this.data_mota = this.data.filter(t => t.thuoctinh == 'mota');
-    this.data_khac = this.data.filter(t => t.thuoctinh == 'khac');
+    }
+    ];
+    this.data_macdinh = this.data.filter(t => t.nhom == 'macdinh');
+    this.data_mota = this.data.filter(t => t.nhom == 'mota');
+    this.data_khac = this.data.filter(t => t.nhom == 'khac');
     this.DataForm = this.generateFormControls();
   }
   status_type = false;
@@ -137,7 +90,6 @@ export class AddproductComponent implements OnInit {
   }
   PreviewData() {
     this.payLoad = JSON.stringify(this.DataForm.getRawValue());
-    // console.log(this.payLoad);
     this.data.forEach(element => {
       element.value_ip = this.DataForm.controls[element.name].value;
     });
@@ -154,10 +106,10 @@ export class AddproductComponent implements OnInit {
     console.log(tmp);
     this.dynamic_num = this.dynamic_num + 1;
     this.data.push(tmp);
-    if (tmp.thuoctinh == 'khac') {
+    if (tmp.nhom == 'khac') {
       this.data_khac.push(tmp);
     }
-    if (tmp.thuoctinh == 'mota') {
+    if (tmp.nhom == 'mota') {
       this.data_mota.push(tmp);
     }
     this.DataForm.addControl(tmp.name, new FormControl(''));
@@ -166,9 +118,10 @@ export class AddproductComponent implements OnInit {
     this.status_type = gt;
   }
   delete_input_temp(gt: string) {
-    console.log(gt);
     let index = this.data.findIndex(t => t.name == gt);
     this.data.splice(index, 1);
+    this.data_mota = this.data.filter(t => t.nhom == 'mota');
+    this.data_khac = this.data.filter(t => t.nhom == 'khac');
   }
   get_image_upload(gt: any) {
     this.src_img = gt.value;
@@ -199,5 +152,21 @@ export class AddproductComponent implements OnInit {
         }
       }
     );
+  }
+  select_mota(value_gt: string, mota_gt: string) {
+    this.open_menu_mota = false;
+    let tmp = {
+      Title: mota_gt,
+      name: value_gt,
+      is_require: true,
+      is_visible: true,
+      type: 'text',
+      nhom: 'mota',
+      is_delete: true,
+      value_ip: ''
+    };
+    this.data.push(tmp);
+    this.data_mota = this.data.filter(t => t.nhom == 'mota');
+    this.DataForm.addControl(tmp.name, new FormControl(''));
   }
 }

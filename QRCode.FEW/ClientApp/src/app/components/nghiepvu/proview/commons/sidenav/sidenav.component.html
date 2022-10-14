@@ -13,7 +13,7 @@
     <ul
         class="ant-menu ant-menu-root ant-menu-light ant-menu-inline w-full box-border text-[14px] text-[#000000a6] leading-[0] outline-[0] font-semibold">
         <li class="mb-2 w-[calc(100%_+_1px)] h-10 leading-10 mt-1 overflow-hidden text-[14px] relative block m-0 whitespace-nowrap cursor-pointer"
-            routerLink="./dashboard"
+            routerLink="./dashboard" (click)="menu_click('')"
             [ngClass]="{'text-clip':!showNav,'text-ellipsis': showNav,'px-8':!showNav,'left-0':!showNav,'text-center':!hover_status,
                     'pl-6':hover_status,'border-r-[3px] border-solid border-[#196898]':hover_status && name_link=='dashboard'}"
             (click)="select_link('dashboard')" routerLinkActive="text-[#196898]">
@@ -50,16 +50,16 @@
             </div>
             <ul #doituong class="ng-star-inserted" (click)="select_link('doituong')"
                 [ngClass]="{'block':check_visible('doituong'),'hidden':!check_visible('doituong')}">
-                <li routerLink="./products" tabindex="0"
+                <li routerLink="./products" (click)="menu_click('Sản phẩm')" tabindex="0"
                     routerLinkActive="border-r-[3px] border-solid border-[#196898] text-[#196898]" class="ant-menu-item font-sans mb-2 w-[calc(100%_+_1px)] h-10 mt-1 px-4 overflow-hidden text-sm leading-10 text-ellipsis relative block m-0 whitespace-nowrap cursor-pointer
                     " style="padding-left: 48px;">Sản
                     phẩm</li>
-                <li routerLink="./companies" tabindex="0"
+                <li routerLink="./companies" (click)="menu_click('Doan nghiệp, cá nhân')" tabindex="0"
                     class="ant-menu-item font-sans mb-2 w-[calc(100%_+_1px)] h-10 mt-1 px-4 overflow-hidden text-sm leading-10 text-ellipsis relative block m-0 whitespace-nowrap cursor-pointer"
                     routerLinkActive="border-r-[3px] border-solid border-[#196898]  text-[#196898]"
                     style="padding-left: 48px;">
                     Doanh nghiệp, cá nhân</li>
-                <li routerLink="./survey" tabindex="0"
+                <li routerLink="./survey" (click)="menu_click('Khảo sát')" tabindex="0"
                     class="ant-menu-item font-sans mb-2 w-[calc(100%_+_1px)] h-10 mt-1 px-4 overflow-hidden text-sm leading-10 text-ellipsis relative block m-0 whitespace-nowrap cursor-pointer"
                     routerLinkActive="border-r-[3px] border-solid border-[#196898]  text-[#196898]"
                     style="padding-left: 48px;">Khảo
