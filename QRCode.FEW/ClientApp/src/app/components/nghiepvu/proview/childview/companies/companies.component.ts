@@ -122,7 +122,6 @@ export class CompaniesComponent implements OnInit {
     dialogConfig.autoFocus = false;
     dialogConfig.width = "600px";
     dialogConfig.maxHeight='90vh';
-    
     dialogConfig.panelClass = "pd_dialog_none";
     this.dialog.open(AddcompanyComponent, dialogConfig).afterClosed().subscribe(
       res => {
