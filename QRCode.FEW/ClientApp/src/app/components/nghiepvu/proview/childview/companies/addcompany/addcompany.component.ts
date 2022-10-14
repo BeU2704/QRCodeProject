@@ -45,13 +45,25 @@ export class AddcompanyComponent implements OnInit {
       ten: '--Quận, huyện--'
     }
   ];
+  array_huyen_tmp = [
+    {
+      ma: '',
+      ten: '--Quận, huyện--'
+    }
+  ];
+  array_xa_tmp = [
+    {
+      ma: '',
+      ten: '--Xã, phường--'
+    }
+  ];
   array_xa = [
     {
       ma: '',
       ten: '--Xã, phường--'
     }
   ];
-  arr_nhomnganh=[
+  arr_nhomnganh = [
     {
       ma: 'Nganh1',
       ten: 'Nhóm ngành 1'
@@ -111,26 +123,35 @@ export class AddcompanyComponent implements OnInit {
   _tinh_val = '';
   tinh_close(gt: any) {
 
-    console.log(this._tinh_val);
   }
   displayFn(selectedoption: any) {
     return selectedoption ? selectedoption.ten : undefined;
   }
   set_gt(gt: any) {
-    this.array_huyen = this.companySrc.get_huyen(gt);
+    this.array_huyen_tmp = this.companySrc.get_huyen(gt);
+    this.array_huyen = this.array_huyen_tmp;
   }
   select_it(evnt: any) {
     console.log(evnt.option.value);
     let gt = evnt.option.value.ma;
     this.set_gt(gt);
   }
-  select_it_xa(evnt: any){
+  select_it_xa(evnt: any) {
     console.log(evnt);
     let gt = evnt.option.value.ma;
-    this.array_xa = this.companySrc.get_xa(gt);
+    this.array_xa_tmp = this.companySrc.get_xa(gt);
+    this.array_xa = this.array_xa_tmp;
   }
-  // auto_change(obj_input: any) {
-  //   let val = obj_input.value;
-  //   this.arr_item = this.temp_item.filter(option => option.mota.toLowerCase().includes(val.toLowerCase()));
-  // }
+  auto_tinh_change(obj_input: any) {
+    let val = obj_input.value;
+    this.arr_tinh = this.companySrc.arr_tinh.filter(option => option.ten.toLowerCase().includes(val.toLowerCase()));
+  }
+  auto_huyen_chang(obj_input: any) {
+    let val = obj_input.value;
+    this.array_huyen = this.array_huyen_tmp.filter(option => option.ten.toLowerCase().includes(val.toLowerCase()));
+  }
+  auto_xa_chang(obj_input: any) {
+    let val = obj_input.value;
+    this.array_xa = this.array_xa_tmp.filter(option => option.ten.toLowerCase().includes(val.toLowerCase()));
+  }
 }

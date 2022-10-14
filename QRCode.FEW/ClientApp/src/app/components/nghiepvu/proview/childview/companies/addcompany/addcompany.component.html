@@ -7,7 +7,8 @@
             <div>Thêm doanh nghiệp, cá nhân mới</div>
         </div>
     </div>
-    <div class="grid grid-cols-2 gap-2 p-6">
+
+    <div class="grid grid-cols-2 gap-2 p-6 overflow-y-auto h-[60%]">
         <div class="flex flex-col relative my-2">
             <label for="" class="inline-block relative font-bold text-sm font-[Roboto]">Ảnh đại diện</label>
             <div class="flex flex-row">
@@ -111,7 +112,8 @@
 
                 <input #input_tinh_none class="w-full text-ellipsis relative py-1 px-[11px] leading-[1.5] focus:border focus:border-solid focus:border-[#196898]
                 bg-white border border-solid border-[#d9d9d9] my-[3px] mr-[6px] ml-0 h-8 text-[13px]"
-                    placeholder="--Tỉnh, thành phố--" aria-label="State" [matAutocomplete]="tinhAutocomplete">
+                    placeholder="--Tỉnh, thành phố--" aria-label="State" [matAutocomplete]="tinhAutocomplete"
+                    (keyup)="auto_tinh_change(input_tinh_none)">
                 <mat-autocomplete #tinhAutocomplete="matAutocomplete" [displayWith]="displayFn"
                     (optionSelected)="select_it($event)">
                     <mat-option *ngFor="let it of arr_tinh" [value]="it">
@@ -132,7 +134,8 @@
                 </span>
                 <input #input_huyen class="w-full text-ellipsis relative inline-block py-1 px-[11px] leading-[1.5] focus:border focus:border-solid focus:border-[#196898]
                 bg-white border border-solid border-[#d9d9d9] my-[3px] mr-[6px] ml-0 h-8 text-[13px]"
-                    placeholder="--Tỉnh, thành phố--" aria-label="State" [matAutocomplete]="huyenAutocomplete">
+                    placeholder="--Tỉnh, thành phố--" aria-label="State" [matAutocomplete]="huyenAutocomplete"
+                    (keyup)="auto_huyen_chang(input_huyen)">
                 <mat-autocomplete #huyenAutocomplete="matAutocomplete" [displayWith]="displayFn"
                     (optionSelected)="select_it_xa($event)">
                     <mat-option *ngFor="let it of array_huyen" [value]="it">
@@ -150,9 +153,10 @@
                         [ngClass]="{'rotate-0 pr-2 pl-0':rotate_it,'rotate-180 pl-2':!rotate_it}" aria-hidden="true"
                         style="font-weight: 400; font-size: 13px;"></i>
                 </span>
-                <input #input_huyen class="w-full text-ellipsis relative inline-block py-1 px-[11px] leading-[1.5] focus:border focus:border-solid focus:border-[#196898]
+                <input #input_xa class="w-full text-ellipsis relative inline-block py-1 px-[11px] leading-[1.5] focus:border focus:border-solid focus:border-[#196898]
                 bg-white border border-solid border-[#d9d9d9] my-[3px] mr-[6px] ml-0 h-8 text-[13px]"
-                    placeholder="--Xã, phường--" aria-label="State" [matAutocomplete]="xaAutocomplete">
+                    placeholder="--Xã, phường--" aria-label="State" [matAutocomplete]="xaAutocomplete"
+                    (keyup)="auto_xa_chang(input_xa)">
                 <mat-autocomplete #xaAutocomplete="matAutocomplete" [displayWith]="displayFn"
                     (optionSelected)="select_it_xa($event)">
                     <mat-option *ngFor="let it of array_xa" [value]="it">
