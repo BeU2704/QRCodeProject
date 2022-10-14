@@ -10,6 +10,9 @@ import { AcountinfoComponent } from './commons/acountinfo/acountinfo.component';
 import { DashboardComponent } from './childview/dashboard/dashboard.component';
 import { CompaniesComponent } from './childview/companies/companies.component';
 import { MatTableModule } from '@angular/material/table';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { AddcompanyComponent } from './childview/companies/addcompany/addcompany.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 
 @NgModule({
@@ -18,11 +21,12 @@ import { MatTableModule } from '@angular/material/table';
     SidenavComponent,
     AcountinfoComponent,
     DashboardComponent,
-    CompaniesComponent
+    CompaniesComponent,
+    AddcompanyComponent
   ],
   imports: [
     CommonModule,
-    ProviewRoutingModule, MatSidenavModule, MatListModule, MatTableModule
+    ProviewRoutingModule, MatSidenavModule, MatListModule, MatTableModule,MatCheckboxModule,MatAutocompleteModule
   ]
 })
 export class ProviewModule { }
