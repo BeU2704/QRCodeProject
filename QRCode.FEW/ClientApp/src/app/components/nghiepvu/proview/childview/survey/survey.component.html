@@ -1,1 +1,15 @@
-<p>survey works!</p>
+<div class="grid grid-cols-2 gap-4">
+    <div class="ml-4">
+        <button (click)="them_cauhoi()"
+            class="leading-[1.5] relative inline-block font-normal text-center cursor-pointer h-8 px-[15px] bg-[#196898] text-white text-[13px] mr-[5px] my-[5px]">Thêm
+            câu hỏi</button>
+        <div *ngFor="let it of arr_cauhoi">
+            <app-cauhoi [cauhoi_in]="it"></app-cauhoi>
+            <button (click)="xoa_cauhoi(it)"
+                class="leading-[1.5] relative inline-block font-normal text-center cursor-pointer h-8 px-[15px] bg-[#be2d2d] text-white text-[13px] mr-[5px] my-[5px]">Xoá</button>
+        </div>
+    </div>
+    <div class="bg-blue-500 h-[200px] mr-4">
+
+    </div>
+</div>
