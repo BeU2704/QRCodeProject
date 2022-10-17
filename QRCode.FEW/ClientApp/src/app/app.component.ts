@@ -1,6 +1,6 @@
 import { Component, HostListener, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LoginComponent } from './components/share/login/login.component';
 import { SigninComponent } from './components/share/signin/signin.component';
 

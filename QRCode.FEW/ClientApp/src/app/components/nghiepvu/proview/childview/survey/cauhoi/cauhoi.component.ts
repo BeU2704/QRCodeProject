@@ -23,9 +23,11 @@ export class CauhoiComponent implements OnInit {
     console.log(JSON.stringify(this.cauhoi_in));
   }
   them_cautl() {
-    debugger;
-    let temp_arr = this.cauhoi_in.element;
-    temp_arr.push('');
-    this.cauhoi_in.element = temp_arr;
+    let length_arr = this.cauhoi_in.element.length;
+    this.cauhoi_in.element.push(length_arr.toString());
+  }
+  delete_cautl(i: string) {
+    let id_del= this.cauhoi_in.element.findIndex(t=>t==i);
+    this.cauhoi_in.element.splice(id_del, 1);
   }
 }
