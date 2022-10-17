@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-acountinfo',
@@ -7,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AcountinfoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
-  show_info=false;
-
+  show_info = false;
+  dang_xuat() {
+    this.router.navigate(['/qrcode-free']);
+  }
 }
